@@ -1,0 +1,7 @@
+이것은 a.txt 파일이다
+Hello World 
+키토김밥 맛있었다
+떡볶이도 먹고싶다
+
+
+good bye!!Today is Friday!Tomorrow!!Tomorrow!!
