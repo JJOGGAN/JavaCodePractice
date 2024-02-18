@@ -9,6 +9,7 @@ public class FileOuputStreamTest1 {
 			ofs.write(65); //아스키코드로 반환
 			ofs.write(66);
 			ofs.write(67);
+			ofs.write(97);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
