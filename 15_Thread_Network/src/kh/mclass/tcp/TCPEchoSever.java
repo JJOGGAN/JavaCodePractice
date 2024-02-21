@@ -10,16 +10,17 @@ import java.net.Socket;
 
 public class TCPEchoSever {
 	public void tcpServer(/* byte[] ip, */int port) {
+		/*TCP에서 필수 호출 4개*/ //close 반드시 해야함
 		ServerSocket ss = null;
 		Socket s = null;
 		BufferedReader br = null;
 		PrintWriter pw = null;
 		
 		try {
-			//1. 서버 소켓 생성
+			/*1. 서버 소켓 생성*/
 			ss = new ServerSocket(port); // port안 넣어주면 window에서 port번호 자동 할당함
 
-			//2. 4.  클라이언트의 접속 대기 --> 클라이언트의 접속 요청
+			/*2. 4.  클라이언트의 접속 대기*/ //--> 클라이언트의 접속 요청
 			s = ss.accept(); // accept : client의 접속할 때 까지 대기
 			
 			// 입출력 스트리 얻어옴
@@ -31,7 +32,7 @@ public class TCPEchoSever {
 				System.out.println("client > "+msg);
 				
 				pw.println("echo~~~~"+msg);
-				pw.flush();
+				pw.flush();//밀어 넣어주지 않으면 상대쪽에서 읽지 않는 경우가 생길지도
 			}
 			
 			

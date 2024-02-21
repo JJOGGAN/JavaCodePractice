@@ -9,9 +9,9 @@ public class MouseListenerEx extends JFrame {
 	private JLabel jlabel = new JLabel("move it!");
 
 	public MouseListenerEx() {
-		setTitle("글자 이동 예제");
+		setTitle("글자 이동과 색변환");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		Container c = getContentPane();
+		Container c = getContentPane(); //내용을 담을 수 있게 해줄래
 		c.addMouseListener(new MyMouseListener());
 		c.addMouseListener(new MyMouseListener2());
 		c.addMouseWheelListener(new MyWheelListener());

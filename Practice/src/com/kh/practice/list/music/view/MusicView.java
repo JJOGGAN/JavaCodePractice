@@ -35,14 +35,24 @@ public class MusicView {
 			System.out.print("메뉴 번호 입력 : ");
 			String munuNum = sc.nextLine();
 			switch (munuNum) {
-			case "1": addList(); break;
-			case "2": addAtZero(); break;
-			case "3":  break;
-			case "4":  break;
-			case "5":  break;
-			case "6":  break;
-			case "7":  break;
-			case "8":  break;
+			case "1":
+				addList();
+				break;
+			case "2":
+				addAtZero();
+				break;
+			case "3":
+				break;
+			case "4":
+				break;
+			case "5":
+				break;
+			case "6":
+				break;
+			case "7":
+				break;
+			case "8":
+				break;
 			case "9":
 				System.out.println("프로그램 종료");
 				break loopOut;
@@ -87,19 +97,33 @@ public class MusicView {
 	}
 
 	public void printAll() {
+		System.out.println("****** 전체 곡 목록 출력 ******");
 		mc.printAll();
 	}
 
 	public void searchMusic() {
+		System.out.println("****** 특정 곡 검색 ****** ");
+		// 사용자에게 곡 이름을 받고 MusicController에 있는 searchMusic으로 값을 넘긴다. 
+		// searchMusic()의 반환 값에 따라 반환 값이 없으면 “검색한 곡이 없습니다.” 
+		// 반환 값이 있으면 “검색한 곡은 000(곡 명, 가수 명) 입니다.” 콘솔 창에 출력
 
 	}
 
 	public void removeMusic() {
-
+		
 	}
 
 	public void setMusic() {
-
+		System.out.println("****** 특정 곡 정보 수정 ****** ");
+		System.out.print("검색할 곡 명 : ");
+		System.out.print("검색할 곡 명 : ");
+		System.out.print("검색할 곡 명 : ");
+//		if(mc.setMusic() == null) {
+//			//TODO
+//		}else {
+//			
+//		}
+		
 	}
 
 	public void ascTitle() {

@@ -31,17 +31,17 @@ public class Music {
 	}
 
 	@Override // 상속도 안 했는데 왜 오버라이드..??
+				//Object 상속은 기본으로 깔려있음
 	public String toString() {
-		// TODO return revision
 		return title + " - " + singer ;
 	}
 
-//	@Override //TODO 오버라이딩하니까 오류발생
-//	public int hashCode(Object obj) {
-//		// TODO result?
-//		int result = 0;
-//		return result;
-//	}
+	@Override 
+	public int hashCode() { //파라미터 안 들어감
+		// TODO result?
+		int result = 0;
+		return result;
+	}
 
 	public boolean equals(Object obj) {
 		// TODO result?
