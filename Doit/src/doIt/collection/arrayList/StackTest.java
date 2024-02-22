@@ -20,12 +20,13 @@ class MyStack{
 public class StackTest {
 public static void main(String[] args) {
 	MyStack stack = new MyStack();
+	
 	stack.push("a");
 	stack.push("b");
 	stack.push("c");
 	
-	System.out.println(stack.pop());
-	System.out.println(stack.pop());
-	System.out.println(stack.pop());
+	System.out.println(stack.pop()); //c
+	System.out.println(stack.pop()); //b
+	System.out.println(stack.pop()); //a
 }
 }
