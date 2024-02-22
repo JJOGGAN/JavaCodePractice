@@ -42,6 +42,7 @@ public class MusicView {
 				addAtZero();
 				break;
 			case "3":
+				printAll();
 				break;
 			case "4":
 				break;
@@ -98,19 +99,22 @@ public class MusicView {
 
 	public void printAll() {
 		System.out.println("****** 전체 곡 목록 출력 ******");
-		mc.printAll();
+		System.out.println(mc.printAll());
 	}
 
 	public void searchMusic() {
 		System.out.println("****** 특정 곡 검색 ****** ");
-		// 사용자에게 곡 이름을 받고 MusicController에 있는 searchMusic으로 값을 넘긴다. 
-		// searchMusic()의 반환 값에 따라 반환 값이 없으면 “검색한 곡이 없습니다.” 
+		System.out.print("검색할 곡 명 : ");
+		String findM = sc.nextLine();
+		mc.searchMusic(findM);
+		// 사용자에게 곡 이름을 받고 MusicController에 있는 searchMusic으로 값을 넘긴다.
+		// searchMusic()의 반환 값에 따라 반환 값이 없으면 “검색한 곡이 없습니다.”
 		// 반환 값이 있으면 “검색한 곡은 000(곡 명, 가수 명) 입니다.” 콘솔 창에 출력
 
 	}
 
 	public void removeMusic() {
-		
+
 	}
 
 	public void setMusic() {
@@ -123,7 +127,7 @@ public class MusicView {
 //		}else {
 //			
 //		}
-		
+
 	}
 
 	public void ascTitle() {

@@ -8,7 +8,8 @@ import java.net.Socket;
 public class ClientBackground {
 	private final String IP = "127.0.0.1";
 	private final int PORT = 7777;
-	private Socket socket;
+	//필드에 생성되었기 때문에 GC가 close역할을 해준다
+	private Socket socket; 
 	private DataInputStream in;
 	private DataOutputStream out;
 	private String nickname;

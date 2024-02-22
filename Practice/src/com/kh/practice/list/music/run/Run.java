@@ -7,7 +7,9 @@ public class Run {
 	public static void main(String[] args) {
 		// object 생성 후 실행
 		MusicView mv = new MusicView();
-		mv.mainMenu();
+//		mv.mainMenu();
+		mv.addList();
+		mv.printAll();
 	}
 
 }
