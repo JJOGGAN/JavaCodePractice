@@ -9,12 +9,12 @@ import java.sql.Statement;
 public class TestJdbcRun {
 	public static void main(String[] args) {
 		Connection conn = null;
-		Statement stat = null;
+		Statement stat = null; //명령어를 실어서 보내는 역할을 함
 		ResultSet rs = null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver"); // driver jar 있는지 확인
 
-			// Connection 객체명 conn (관례) //		연결에 상당시간 소요 ↓
+			// Connection 객체명 conn (관례) //		연결에 상당시간 소요 ↓   (설치한 장소)
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE", "system", "oracle");// 계정이름은
 																											// 자유,
 			if (conn != null) {
@@ -23,6 +23,8 @@ public class TestJdbcRun {
 				System.out.println("연결 실패");
 			}
 			stat = conn.createStatement(); // statement 를 리턴함 //sql에 있는 Statement import
+			
+			//resultSet 모양으로 리턴하는 Query
 			rs = stat.executeQuery("select id, last_name from emp"); // 소문자로 적어도 oracle이 알아서 대문자로 변환해줌
 			int result = stat.executeUpdate("UPDATE EMPSET LAST_NAME = ‘KIM’" + " WHERE ID = ‘10000’"); // ID가 10000인
 			// 있으면 1 없으면 0을 리턴
@@ -44,6 +46,5 @@ public class TestJdbcRun {
 			}
 		}
 //		1 연결 1 해제 : 언제 재연결을 할 지 모르는데 계속 연결해두면 자바, DB입장에서 부담스럽기 때문
-
 	}
 }
