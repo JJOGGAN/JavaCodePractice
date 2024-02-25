@@ -5,7 +5,7 @@ import com.kh.practice.list.music.view.MusicView;
 public class Run {
 
 	public static void main(String[] args) {
-		// object 생성 후 실행
+		// 객체 생성 후 실행
 		MusicView mv = new MusicView();
 //		mv.mainMenu();
 		mv.addList();

@@ -48,12 +48,16 @@ public class MusicView {
 				searchMusic();
 				break;
 			case "5":
+				removeMusic();
 				break;
 			case "6":
+				setMusic();
 				break;
 			case "7":
+				ascTitle();
 				break;
 			case "8":
+				descSinger();
 				break;
 			case "9":
 				System.out.println("프로그램 종료");
@@ -106,10 +110,13 @@ public class MusicView {
 	public void searchMusic() {
 		System.out.println("****** 특정 곡 검색 ****** ");
 		System.out.print("검색할 곡 명 : ");
-		String findM = sc.nextLine();
-		Music musicF = mc.searchMusic(findM);
-		//TODO 서칭값의 유무
-//		if(musicF.equals(null))
+		String find = sc.nextLine();
+		Music findM = mc.searchMusic(find);
+		if (findM == null) {
+			System.out.println("해당 곡이 존재하지 않습니다.");
+		} else {
+			System.out.println(findM.getSinger() + " - " + findM.getTitle());
+		}
 		// 사용자에게 곡 이름을 받고 MusicController에 있는 searchMusic으로 값을 넘긴다.
 		// searchMusic()의 반환 값에 따라 반환 값이 없으면 “검색한 곡이 없습니다.”
 		// 반환 값이 있으면 “검색한 곡은 000(곡 명, 가수 명) 입니다.” 콘솔 창에 출력
@@ -117,28 +124,44 @@ public class MusicView {
 	}
 
 	public void removeMusic() {
+		System.out.println("****** 특정 곡 삭제 ******");
+		System.out.print("삭제할 곡 명 : ");
+		String remove = sc.nextLine();
+		Music removeM = mc.removeMusic(remove);
+		if (removeM == null) {
+			System.out.println("삭제할 곡이 없습니다.");
+		} else {
+			System.out.println(removeM.getSinger() + " - " + removeM.getTitle() + "을(를) 삭제했습니다.");
+		}
 
 	}
 
 	public void setMusic() {
 		System.out.println("****** 특정 곡 정보 수정 ****** ");
 		System.out.print("검색할 곡 명 : ");
+		String find = sc.nextLine();
+		System.out.print("수정할 곡 명 : ");
+		String setS = sc.nextLine();
 		System.out.print("검색할 곡 명 : ");
-		System.out.print("검색할 곡 명 : ");
-//		if(mc.setMusic() == null) {
-//			//TODO
-//		}else {
-//			
-//		}
+		String setT = sc.nextLine();
+		mc.setMusic(find, new Music(setT, setS));
 
 	}
 
 	public void ascTitle() {
-
+		if(mc.ascTitle() ==1) {
+			System.out.println("정렬 성공");
+		}else {
+			System.out.println("정렬 실패");
+		}
 	}
 
 	public void descSinger() {
-
+		if(mc.ascTitle() ==1) {
+			System.out.println("정렬 성공");
+		}else {
+			System.out.println("정렬 실패");
+		}
 	}
 
 }
