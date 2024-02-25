@@ -103,13 +103,12 @@ public class EmpDao {
 
 			if (conn != null)
 				System.out.println("GOOD");
-			else
+			else 
 				System.out.println("FAIL");
 
-			// String sql = "insert into emp (EMPNO,ENAME, JOB, MGR, HIREDATE, SAL, COMM,
-			// DEPTNO ) values(?,?,?,?,SYSDATE,?,?,?)";
-			String sql = "insert into emp (EMPNO,ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) values (?,?,?,?,SYSDATE,?,?,?)"; // 들어가는
-																																// 값
+			String sql = "insert into emp (EMPNO,ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO ) values(?,?,?,?,SYSDATE,?,?,?)";
+//			String sql = "insert into emp (EMPNO,ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) values (?,?,?,?,SYSDATE,?,?,?)"; // 들어가는
+			// 값
 
 			pstmt = conn.prepareStatement(sql); // pstmt 가 output 같은 존재
 			// 모든 값 넣어주기 단 DATE자료형은 제외 - hiredate

@@ -83,7 +83,6 @@ public class EmpMenu {
 
 			System.out.println("deptno(10,20,30,40) : ");
 			String deptnoStr = sc.nextLine();
-			//TODO double로 변경 현재 인식이 안되는 상황
 			int deptno = Integer.parseInt(deptnoStr);
 
 			Date hiredate = null; //날짜엔 null값
