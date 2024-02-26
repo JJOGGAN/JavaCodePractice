@@ -1,4 +1,4 @@
-package kh.mclass.jdbc.run;
+package test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

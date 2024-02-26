@@ -11,10 +11,10 @@ public class EmpController { //controller - 구조 만들기 : dao에서 값 받
 	public List<Emp> selectList() {
 		return dao.selectList();
 	}
-	public void insertEmp(Emp emp) {
-		dao.insertEmp(emp);
+	public void insert(Emp emp) {
+		dao.insert(emp);
 	}
-	public void deleteEmp() {
+	public void delete() {
 		
 	}
 	

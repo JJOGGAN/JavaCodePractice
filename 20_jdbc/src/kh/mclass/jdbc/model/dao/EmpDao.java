@@ -15,10 +15,19 @@ import kh.mclass.jdbc.model.vo.Emp;
 public class EmpDao {
 	public List<Emp> selectList() {
 		Connection conn = null;
-		Statement stmt = null;
+		//Statement stmt = null;
+		PreparedStatement pstmt = null; //statment 보다 보안성이 높음
 		ResultSet rs = null;
 		List<Emp> empList = null; // 오류가 있는 상태를 유지하기 위해 선언만
 		// System.out.println(empList.size()); //NullPoinrterException
+		
+/*  범위 제한*/		
+		// int searchEmpno =2000;
+		int searchDeptno = 20;
+		
+//		String sql = "select * from emp where empno < ?" ; // 사원번호를 2000이하로 밤위제한
+		String sql = "select * from emp where deptno" +searchDeptno; //Deptno 범위 제한
+//		String sql = "select * from emp where deptno ?" ;
 
 		// 만약 초기화까지 하면...
 		// empList = new ArrayList<Emp>);
@@ -36,14 +45,19 @@ public class EmpDao {
 				System.out.println("GOOD");
 			else
 				System.out.println("FAIL");
-			stmt = conn.createStatement(); //
-			rs = stmt.executeQuery("select * from emp");
+			//stmt = conn.createStatement(); 
+			//rs = stmt.executeQuery();
+			pstmt = conn.prepareStatement(sql);
+/* 30행을 사용할 경울 밑에 행 필요 */	//		
+//			pstmt.setInt(1, searchDeptno);
+			rs = pstmt.executeQuery();
+			
 // 27~36행 : 데이터 엑세스 과정
 			//////// List 생성
 			// conn 연결 성공한 후 while 문으로 돌리기 전에 생성
 			// conn이 성공한 후에 Emp의 값을 읽으러 감
 			empList = new ArrayList<Emp>(); // size : 0
-
+			
 			while (rs.next()) {
 				//////// emp 생성 : while문이 반복될 때 마다 새로운 emp라는 객체가 생성되는 것이다
 				Emp emp = new Emp(); // while 안에 생성 : while밖에서 생성하면 emp는 한 번만 생성되기 때문에 처음 공간에 계속 정보를 넣게 된다.
@@ -70,8 +84,8 @@ public class EmpDao {
 			try {
 				if (rs != null)
 					rs.close();
-				if (stmt != null)
-					stmt.close();
+				if (pstmt != null)
+					pstmt.close();
 				if (conn != null)
 					conn.close();
 			} catch (SQLException e) {
@@ -81,36 +95,32 @@ public class EmpDao {
 		return empList;
 	}
 
-	public int insertEmp(Emp emp) { // 입력받은 값을 oracle에 전송
+	public int insert(Emp emp) { // 입력받은 값을 oracle에 전송
 
 		Connection conn = null;
-		PreparedStatement pstmt = null;
+		PreparedStatement pstmt = null; //? 쿼리스트링 사용 가능
 		int result = -1;
-
-//			private int empno;
-//			private String ename;
-//			private String job;
-//			private int mgr;
-//			private Date hiredate;
-//			private int sal;
-//			private double comm;
-//			private int deptno;
+		//String sql = "insert into emp" + 
+//		"(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO ) "
+//		+ " values "
+//		+ "("+emp.getEmpno()+", '"+emp.getEname()+"', '"+emp.getJob()+"' , "+emp.getMgr()+","
+//				+ " SYSDATE, "+emp.getSal()+", "+emp.getComm()+", "+emp.getDeptno()+" )");
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE", "scott", "TIGER");
 			// scott : 사용자 이름 , TIGER : 비밀번호
 
-			if (conn != null)
-				System.out.println("GOOD");
-			else 
-				System.out.println("FAIL");
-
+			if (conn != null)System.out.println("GOOD");
+			else System.out.println("FAIL");
 			String sql = "insert into emp (EMPNO,ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO ) values(?,?,?,?,SYSDATE,?,?,?)";
-//			String sql = "insert into emp (EMPNO,ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) values (?,?,?,?,SYSDATE,?,?,?)"; // 들어가는
-			// 값
+ 			// 값
 
+			conn.setAutoCommit(false); // 자동 commit을 못하게 한다. / close()를 하면 자동으로 커밋이 되어서 지금 실행해도 자동커밋이 된다.
+			
 			pstmt = conn.prepareStatement(sql); // pstmt 가 output 같은 존재
+			
+			if(result > 0 ) conn.commit(); else conn.rollback(); //rollback 할 기회 
 			// 모든 값 넣어주기 단 DATE자료형은 제외 - hiredate
 			pstmt.setInt(1, emp.getEmpno()); // 1번째 물을표에 emp.getEmpno()를 넣어줘
 			pstmt.setString(2, emp.getEname());
@@ -124,7 +134,7 @@ public class EmpDao {
 			result = pstmt.executeUpdate();
 
 //			int result = pstmt.executeUpdate("insert into emp "
-//					+ "(EMPNO,				ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO ) "
+//					+ "(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO ) "
 //					+ " values "
 //					+ "("+emp.getEmpno()+", '"+emp.getEname()+"', '"+emp.getJob()+"' , "+emp.getMgr()+","
 //							+ " SYSDATE, "+emp.getSal()+", "+emp.getComm()+", "+emp.getDeptno()+" )");
@@ -147,7 +157,7 @@ public class EmpDao {
 		return result;
 	}
 
-	public void deleteEmp() {
+	public void delete() {
 
 	}
 }
