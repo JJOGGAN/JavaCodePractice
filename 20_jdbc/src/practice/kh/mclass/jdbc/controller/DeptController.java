@@ -6,7 +6,7 @@ import practice.kh.mclass.jdbc.model.service.DeptService;
 import practice.kh.mclass.jdbc.model.vo.Dept;
 
 public class DeptController {
-	DeptService service = new DeptService();
+	private DeptService service = new DeptService();
 	public List<Dept> selectList() {
 		return service.selectList();
 	}

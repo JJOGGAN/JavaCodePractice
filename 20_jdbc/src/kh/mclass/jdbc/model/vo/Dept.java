@@ -21,6 +21,11 @@ public class Dept {
 		this.loc = loc;
 	}
 
+	@Override
+	public String toString() {
+		return " [deptno=" + deptno + ", dname=" + dname + ", loc=" + loc + "]";
+	}
+
 	public int getDeptno() {
 		return deptno;
 	}

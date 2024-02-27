@@ -4,19 +4,21 @@ import java.util.List;
 import java.util.Scanner;
 
 import kh.mclass.jdbc.controller.DeptController;
+import kh.mclass.jdbc.controller.SalgradeController;
 import kh.mclass.jdbc.model.vo.Dept;
+import kh.mclass.jdbc.model.vo.Salgrade;
 
-public class DeptMenu {
+public class SalgradeMenu {
 	private Scanner sc = new Scanner(System.in);
-	private DeptController controller = new DeptController();
+	private SalgradeController controller = new SalgradeController();
 
-	public void deptMenu() {
+	public void salgradeMenu() {
 		while (true) {
 			boolean exit = false;
 			System.out.println("메뉴를 고르세요");
-			System.out.println("1: DEPT 조회");
-			System.out.println("2. DEPT 추가");
-			System.out.println("3. DEPT 삭제");
+			System.out.println("1: SALGRADE 조회");
+			System.out.println("2. SALGRADE 추가");
+			System.out.println("3. SALGRADE 삭제");
 			String menu = sc.nextLine();
 			switch (menu) {
 			case "1":
@@ -40,13 +42,13 @@ public class DeptMenu {
 	}
 
 	public void selectList() {
-		List<Dept> list = controller.selectList();
+		List<Salgrade> list = controller.selectList();
 		if(list == null) {
 			System.out.println("오류로 데이터 읽기 실패");
 		} else {
 			System.out.println("사원수:"+ list.size());
 			if(list.size() > 0) {
-				for(Dept vo : list) {
+				for(Salgrade vo : list) {
 					System.out.println(vo);
 				}
 			}
@@ -54,17 +56,17 @@ public class DeptMenu {
 	}
 	public void insert() {
 		try {
-			System.out.print("dname : ");
-			String dname = sc.nextLine();
-			System.out.print("loc : ");
-			String loc = sc.nextLine();
-
-			System.out.print("deptno(10,20,30,40 외) : ");
-			String deptnoStr = sc.nextLine();
-			int deptno = Integer.parseInt(deptnoStr);
+			System.out.print("garde : ");
+			String gardeStr = sc.nextLine();
+			int garde = Integer.parseInt(gardeStr);
+			System.out.print("losal : ");
+			String losalStr = sc.nextLine();
+			int losal = Integer.parseInt(losalStr);
+			System.out.print("hisal : ");
+			String hisalStr = sc.nextLine();
+			int hisal = Integer.parseInt(hisalStr);
 		
-			Dept vo = new Dept(deptno, dname, loc);
-			System.out.println("====== 지금까지 입력한 데이터를 controller에게 전달함.");
+			Salgrade vo = new Salgrade(garde, losal, hisal);
 			int result = controller.insert(vo);
 			if(result > 0) {
 				System.out.println("추가하였습니다.");
@@ -79,11 +81,10 @@ public class DeptMenu {
 
 	public void delete() {
 		try {
-			System.out.print("삭제할 deptno(51,52,...) : ");
-			String deptnoStr = sc.nextLine();
-			int deptno = Integer.parseInt(deptnoStr);
-		
-			int result = controller.delete(deptno);
+			System.out.print("garde : ");
+			String gardeStr = sc.nextLine();
+			int garde = Integer.parseInt(gardeStr);
+			int result = controller.delete(garde);
 			if(result > 0) {
 				System.out.println("삭제하였습니다.");
 			} else {

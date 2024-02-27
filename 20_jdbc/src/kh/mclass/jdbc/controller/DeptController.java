@@ -1,4 +1,4 @@
-package kh.mclass.jdbc.model.controller;
+package kh.mclass.jdbc.controller;
 
 import java.util.List;
 

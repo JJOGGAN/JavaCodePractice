@@ -1,11 +1,8 @@
-package kh.mclass.jdbc.model.vo;
+package practice.kh.mclass.jdbc.model.vo;
 
 public class Salgrade {
-//	 이름                                      널?      유형
-//			 ----------------------------------------- -------- ----------------------------
-//			 GRADE                                              NUMBER
-//			 LOSAL                                              NUMBER
-//			 HISAL                                              NUMBER
+
+
 	private int grade;
 	private int losal;
 	private int hisal;
@@ -49,4 +46,8 @@ public class Salgrade {
 	public void setHisal(int hisal) {
 		this.hisal = hisal;
 	}
+	
+	
+
+
 }

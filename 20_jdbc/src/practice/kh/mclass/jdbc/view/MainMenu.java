@@ -2,6 +2,7 @@ package practice.kh.mclass.jdbc.view;
 
 import java.util.Scanner;
 
+
 public class MainMenu {
 	private Scanner sc = new Scanner(System.in);
 
@@ -35,13 +36,13 @@ public class MainMenu {
 		System.out.println("프로그램을 종료합니다.");
 	}
 	public void empMenu() {
-		
+		new EmpMenu().empMenu();
 	}
 	public void deptMenu() {
 		new DeptMenu().deptMenu();
 	}
 	public void salgradeMenu() {
-		
+		new SalgradeMenu().salgradeMenu();
 	}
 
 }

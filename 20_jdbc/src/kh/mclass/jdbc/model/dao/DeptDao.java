@@ -13,14 +13,6 @@ import static kh.mclass.jdbc.common.JdbcTemplate.*; //클래스명을 쓰지 않
 
 public class DeptDao {
 
-//	try {
-//		Class.forName("oracle.jdbc.driver.OracleDriver");
-//		conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE", "scott", "TIGER");
-//		if (conn != null)System.out.println("GOOD");
-//		else System.out.println("FAIL");
-//	} catch (Exception e) {
-//	}
-	
 	public List<Dept> selectList(Connection conn) {
 		String sql = "select * from dept";
 		PreparedStatement pstmt =  null;

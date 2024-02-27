@@ -12,6 +12,7 @@ public class MainMenu {
 			System.out.println("메뉴를 고르세요");
 			System.out.println("1: EMP 도메인");
 			System.out.println("2. DEPT 도메인");
+			System.out.println("3. SALGRADE 도메인");
 			String menu = sc.nextLine();
 			switch (menu) {
 			case "1":
@@ -19,6 +20,9 @@ public class MainMenu {
 				break;
 			case "2":
 				deptMenu();
+				break;
+			case "3":
+				salgradeMenu();
 				break;
 			default:
 				exit = true;
@@ -37,4 +41,8 @@ public class MainMenu {
 	public void deptMenu() {
 		new DeptMenu().deptMenu();
 	}
+	public void salgradeMenu() {
+		new SalgradeMenu().salgradeMenu();
+	}
+	
 }
