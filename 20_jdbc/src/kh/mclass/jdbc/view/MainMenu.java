@@ -42,7 +42,7 @@ public class MainMenu {
 		new DeptMenu().deptMenu();
 	}
 	public void salgradeMenu() {
-		new SalgradeMenu().salgradeMenu();
+		new SalgradeMenu().menu();
 	}
 	
 }

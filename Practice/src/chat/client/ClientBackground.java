@@ -8,8 +8,8 @@ import java.net.Socket;
 public class ClientBackground {
 	private final String IP = "127.0.0.1";
 	private final int PORT = 7777;
-	//필드에 생성되었기 때문에 GC가 close역할을 해준다
-	private Socket socket; 
+	// 필드에 생성되었기 때문에 GC가 close역할을 해준다
+	private Socket socket;
 	private DataInputStream in;
 	private DataOutputStream out;
 	private String nickname;
@@ -31,10 +31,9 @@ public class ClientBackground {
 
 			// 접속 후 서버에서 닉네임을 인식
 			out.writeUTF(nickname); // 닉네임 내보냄 //flush 없음
-			
-			
-			//수신 메세지 값이 있는지 계속 반복문으로 확인
-			while(in != null) { //수신값이 null이 아니라면
+
+			// 수신 메세지 값이 있는지 계속 반복문으로 확인
+			while (in != null) { // 수신값이 null이 아니라면
 				String msg = in.readUTF();
 				gui.setJtaAppendMsg(msg);
 			}
@@ -46,7 +45,7 @@ public class ClientBackground {
 			gui.setJtaAppendMsg("예기치 못한 요류가 발생했습니다. 프로그램을 재시작해주세요");
 		}
 	}
-	
+
 	public void sendMessage(String msg) {
 		try {
 			out.writeUTF(msg);

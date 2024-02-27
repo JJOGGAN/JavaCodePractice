@@ -3,16 +3,14 @@ package kh.mclass.jdbc.view;
 import java.util.List;
 import java.util.Scanner;
 
-import kh.mclass.jdbc.controller.DeptController;
 import kh.mclass.jdbc.controller.SalgradeController;
-import kh.mclass.jdbc.model.vo.Dept;
 import kh.mclass.jdbc.model.vo.Salgrade;
 
 public class SalgradeMenu {
 	private Scanner sc = new Scanner(System.in);
 	private SalgradeController controller = new SalgradeController();
 
-	public void salgradeMenu() {
+	public void menu() {
 		while (true) {
 			boolean exit = false;
 			System.out.println("메뉴를 고르세요");
@@ -39,6 +37,13 @@ public class SalgradeMenu {
 			}
 		}
 		System.out.println("프로그램을 종료합니다.");
+	}
+	
+	public void selectOne() {
+		System.out.print("garde : ");
+		String gardeStr = sc.nextLine();
+		int garde = Integer.parseInt(gardeStr);
+		//TODO 내용 채우기
 	}
 
 	public void selectList() {
@@ -96,6 +101,8 @@ public class SalgradeMenu {
 		
 	}
 	
-
+	public void update() {
+		//TODO 내용 채우기
+	}
 	
 }
