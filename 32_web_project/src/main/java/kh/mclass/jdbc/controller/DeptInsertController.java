@@ -1,47 +1,49 @@
 package kh.mclass.jdbc.controller;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.startup.ClassLoaderFactory.Repository;
+
 import kh.mclass.jdbc.model.service.DeptService;
 import kh.mclass.jdbc.model.vo.Dept;
 
 /**
- * Servlet implementation class DeptDeleteController
+ * Servlet implementation class DeptInsertController
  */
-@WebServlet("/dept/delete")
-public class DeptDeleteController extends HttpServlet {
+@WebServlet("/dept/insert")
+public class DeptInsertController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeptDeleteController() {
+    public DeptInsertController() {
         super();
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nostr = request.getParameter("no");
-		int no = Integer.parseInt(nostr);
+	protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
 		DeptService service = new DeptService();
-		int result = service.delete(no);
-		if(result >0) {
-			List<Dept> volist = service.selectList();
-			request.setAttribute("volist", volist);
-			request.getRequestDispatcher("/views/deptlist.jsp").forward(request, response);
-			
+		String noStr = req.getParameter("no");
+		String dname = req.getParameter("dname");
+		String loc = req.getParameter("loc");
+		
+		int deptno = Integer.parseInt(noStr);
+		
+		Dept vo = new Dept(deptno, dname, loc);
+		int result = service.insert(vo);
+		if (result >0) {
+			response.sendRedirect(req.getContextPath()+"/dept/insert");
 		}else {
-			request.setAttribute("msg", "해당 부서는 존하지 않으므로 삭제 불가");
-			request.getRequestDispatcher("/views/errorPage.jsp").forward(request, response);
+			req.setAttribute("msg", "부서추가하기 실패 재확인 필요");
+			req.getRequestDispatcher("/views/errorPage.jsp").forward(req, response);
 		}
 	}
 

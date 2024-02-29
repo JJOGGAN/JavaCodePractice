@@ -22,8 +22,6 @@
 	<br>
 	<%
 	List<Dept> volist = (List<Dept>) request.getAttribute("volist");
-	String data2 = (String) request.getAttribute("data2");
-	Integer data3 = (Integer) request.getAttribute("data3");
 
 	for (Dept vo : volist) {
 	%>

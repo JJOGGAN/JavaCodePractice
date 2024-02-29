@@ -24,7 +24,6 @@ public class DeptDeleteController extends HttpServlet {
 	 */
 	public DeptDeleteController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -37,14 +36,22 @@ public class DeptDeleteController extends HttpServlet {
 		String noStr = request.getParameter("no"); // getParameter은 항상 string 으로 리턴
 		// String a = request.getParameter("a");
 		// String b = request.getParameter("b");
+		 String loc = request.getParameter("loc");
 		System.out.println("noStr: " + noStr);
 		// System.out.println("a: "+a);
 		// System.out.println("b: "+b);
 		int deptno = Integer.parseInt(noStr);
 		DeptService service = new DeptService();
 		int result = service.delete(deptno);
+		//TODO 0229 5교시 강의 확인
+//		if(noStr != null & !noStr.equals("")) {
+//			int deptnom = Integer.parseInt(noStr);
+//			result = service.delete(deptno);
+//		}else if (loc != null&&!loc.equals("")) {
+//			result = service.
+//		}
+		
 		if (result > 0) {
-			// TODO
 			List<Dept> volist = service.selectList();
 			request.setAttribute("volist", volist);
 			request.getRequestDispatcher("/views/deptlist.jsp").forward(request, response);
@@ -60,7 +67,6 @@ public class DeptDeleteController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response); //
 	}
 

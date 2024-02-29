@@ -15,7 +15,7 @@ import kh.mclass.jdbc.model.vo.Dept;
 /**
  * Servlet implementation class DeptController
  */
-@WebServlet("/deptlist")
+@WebServlet("/deptlist") // 이 servlet의 url이다.
 public class DeptController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -66,7 +66,6 @@ public class DeptController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

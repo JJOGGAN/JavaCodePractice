@@ -7,7 +7,7 @@
 <title>Error</title>
 </head>
 <body>
-<h1>S{msg}</h1>
+<h1>${msg}</h1>
 ${volist}
 </body>
 </html>
