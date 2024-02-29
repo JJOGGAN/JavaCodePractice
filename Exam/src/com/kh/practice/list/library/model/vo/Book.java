@@ -1,6 +1,8 @@
 package com.kh.practice.list.library.model.vo;
 
-public class Book {
+import java.util.Comparator;
+
+public class Book implements Comparable<Book>,Comparator<Book>{
 	private String title;
 	private String author;
 	private String category;
@@ -52,7 +54,7 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [title=" + title + ", author=" + author + ", category=" + category + ", price=" + price + "]";
+		return "[title=" + title + ", author=" + author + ", category=" + category + ", price=" + price + "]";
 	}
 	public int hashCode() {
 		//TODO result?
@@ -64,9 +66,18 @@ public class Book {
 		boolean result = false;
 		return result;
 	}
-	public int compareTo() {
-		//TODO result?
-		int result = 0;
-		return result;
+
+	@Override
+	public int compare(Book o1, Book o2) {
+		// TODO ..??
+		return 0;
 	}
+
+	@Override
+	public int compareTo(Book o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
 }
