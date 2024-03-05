@@ -1,5 +1,6 @@
 /.metadata/
 bin/
+*.properties
 *.class
 02_Variable/
 02_VariableExam/

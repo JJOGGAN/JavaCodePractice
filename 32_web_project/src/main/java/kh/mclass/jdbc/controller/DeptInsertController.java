@@ -40,10 +40,13 @@ public class DeptInsertController extends HttpServlet {
 		Dept vo = new Dept(deptno, dname, loc);
 		int result = service.insert(vo);
 		if (result >0) {
+			//response 해버렸으므로 session에 담아서만 보낼 수 있음
 			response.sendRedirect(req.getContextPath()+"/dept/insert");
+			//getContextPath : url에 적히는 그 루트명
 		}else {
 			req.setAttribute("msg", "부서추가하기 실패 재확인 필요");
 			req.getRequestDispatcher("/views/errorPage.jsp").forward(req, response);
+			//getRequestDispatcher : 절대경로 Webapp의 Content 기준
 		}
 	}
 

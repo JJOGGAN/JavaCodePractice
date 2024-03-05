@@ -1,0 +1,1014 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+	<header>
+		<resultCode>00</resultCode>
+		<resultMsg>NORMAL_CODE</resultMsg>
+	</header>
+	<body>
+		<items>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>74</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.4</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>50</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>33</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.033</no2Value>
+				<stationName>중구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.024</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>75</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.6</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>75</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>34</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.041</no2Value>
+				<stationName>한강대로</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.018</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>74</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.5</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>54</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>30</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.032</no2Value>
+				<stationName>종로구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.026</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>77</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.6</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>67</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>28</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>1</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.028</no2Value>
+				<stationName>청계천로</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.025</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>70</khaiValue>
+				<so2Value>0.004</so2Value>
+				<coValue>0.6</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>58</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>27</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.042</no2Value>
+				<stationName>종로</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.019</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>74</khaiValue>
+				<so2Value>0.004</so2Value>
+				<coValue>0.5</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>64</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>34</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.035</no2Value>
+				<stationName>용산구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.026</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>66</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.4</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>2</o3Grade>
+				<pm10Value>50</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>26</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>1</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.025</no2Value>
+				<stationName>광진구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.036</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>72</khaiValue>
+				<so2Value>0.004</so2Value>
+				<coValue>0.4</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>61</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>29</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>1</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.030</no2Value>
+				<stationName>성동구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.030</o3Value>
+			</item>
+			<item>
+				<so2Grade />
+				<coFlag>통신장애</coFlag>
+				<khaiValue>-</khaiValue>
+				<so2Value>-</so2Value>
+				<coValue>-</coValue>
+				<pm25Flag>통신장애</pm25Flag>
+				<pm10Flag>통신장애</pm10Flag>
+				<o3Grade />
+				<pm10Value>-</pm10Value>
+				<khaiGrade />
+				<pm25Value>-</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag>통신장애</no2Flag>
+				<no2Grade />
+				<o3Flag>통신장애</o3Flag>
+				<pm25Grade />
+				<so2Flag>통신장애</so2Flag>
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade />
+				<no2Value>-</no2Value>
+				<stationName>강변북로</stationName>
+				<pm10Grade />
+				<o3Value>-</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>69</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.4</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>2</o3Grade>
+				<pm10Value>46</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>30</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>1</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.023</no2Value>
+				<stationName>중랑구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.031</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>69</khaiValue>
+				<so2Value>0.002</so2Value>
+				<coValue>0.5</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>59</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>30</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.034</no2Value>
+				<stationName>동대문구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.024</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>65</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.5</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>55</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>25</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.034</no2Value>
+				<stationName>홍릉로</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.024</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>69</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.5</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>60</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>27</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>1</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.026</no2Value>
+				<stationName>성북구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.024</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>104</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.5</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>62</pm10Value>
+				<khaiGrade>3</khaiGrade>
+				<pm25Value>35</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>3</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.064</no2Value>
+				<stationName>정릉로</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.015</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>77</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.9</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>66</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>32</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.045</no2Value>
+				<stationName>도봉구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.015</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>79</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.4</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>2</o3Grade>
+				<pm10Value>66</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>39</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>1</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.019</no2Value>
+				<stationName>은평구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.038</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>82</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.5</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>60</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>31</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>1</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.027</no2Value>
+				<stationName>서대문구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.029</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>77</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.5</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>55</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>29</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.043</no2Value>
+				<stationName>마포구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.022</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>74</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.5</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>60</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>32</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.038</no2Value>
+				<stationName>신촌로</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.016</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>77</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.7</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>69</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>29</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.045</no2Value>
+				<stationName>강서구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.017</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>88</khaiValue>
+				<so2Value>0.004</so2Value>
+				<coValue>0.6</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>64</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>27</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.053</no2Value>
+				<stationName>공항대로</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.014</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>77</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.5</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>77</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>37</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>1</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.020</no2Value>
+				<stationName>구로구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.027</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>82</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.5</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>66</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>42</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.032</no2Value>
+				<stationName>영등포구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.020</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>75</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.6</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>76</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>36</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.043</no2Value>
+				<stationName>영등포로</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.018</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>79</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.4</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>2</o3Grade>
+				<pm10Value>69</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>40</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>1</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.026</no2Value>
+				<stationName>동작구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.035</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>93</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.5</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>82</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>38</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.056</no2Value>
+				<stationName>동작대로 중앙차로</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.020</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>77</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.5</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>74</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>39</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>1</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.030</no2Value>
+				<stationName>관악구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.029</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>72</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.5</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>68</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>34</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.039</no2Value>
+				<stationName>강남구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.021</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>-</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.4</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>100</pm10Value>
+				<khaiGrade />
+				<pm25Value>45</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.033</no2Value>
+				<stationName>서초구</stationName>
+				<pm10Grade />
+				<o3Value>0.020</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>81</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.6</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>95</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>35</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.036</no2Value>
+				<stationName>도산대로</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.016</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>88</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.7</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>89</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>46</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.041</no2Value>
+				<stationName>강남대로</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.017</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>76</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.4</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>73</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>30</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.032</no2Value>
+				<stationName>송파구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.026</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>72</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.6</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>2</o3Grade>
+				<pm10Value>61</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>28</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>1</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.024</no2Value>
+				<stationName>강동구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.040</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>79</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.5</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>71</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>29</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.036</no2Value>
+				<stationName>천호대로</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.024</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>85</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.4</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>64</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>38</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.034</no2Value>
+				<stationName>금천구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.030</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>88</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.7</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>85</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>40</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.053</no2Value>
+				<stationName>시흥대로</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.011</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>64</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.5</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>46</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>23</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.033</no2Value>
+				<stationName>강북구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.025</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>74</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.6</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>69</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>34</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.040</no2Value>
+				<stationName>양천구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.024</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>85</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.5</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>52</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>29</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.041</no2Value>
+				<stationName>노원구</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.015</o3Value>
+			</item>
+			<item>
+				<so2Grade>1</so2Grade>
+				<coFlag />
+				<khaiValue>97</khaiValue>
+				<so2Value>0.003</so2Value>
+				<coValue>0.6</coValue>
+				<pm25Flag />
+				<pm10Flag />
+				<o3Grade>1</o3Grade>
+				<pm10Value>66</pm10Value>
+				<khaiGrade>2</khaiGrade>
+				<pm25Value>26</pm25Value>
+				<sidoName>서울</sidoName>
+				<no2Flag />
+				<no2Grade>2</no2Grade>
+				<o3Flag />
+				<pm25Grade>2</pm25Grade>
+				<so2Flag />
+				<dataTime>2024-03-05 11:00</dataTime>
+				<coGrade>1</coGrade>
+				<no2Value>0.058</no2Value>
+				<stationName>화랑로</stationName>
+				<pm10Grade>2</pm10Grade>
+				<o3Value>0.014</o3Value>
+			</item>
+		</items>
+		<numOfRows>100</numOfRows>
+		<pageNo>1</pageNo>
+		<totalCount>40</totalCount>
+	</body>
+</response>
