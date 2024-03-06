@@ -1,11 +1,7 @@
 package kh.mclass.dept.model.service;
 
-import static kh.mclass.jdbc.JdbcTemplate.close;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
 
 import kh.mclass.dept.model.dao.DeptDao;
@@ -35,6 +31,12 @@ public class DeptService {
 		int result = -1;
 		Connection conn = getConnection();
 		result = dao.insert(conn, vo);
+		Autocommit(conn, false);
+		if (result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
 		close(conn);
 		return result;
 	}
@@ -43,6 +45,12 @@ public class DeptService {
 		int result = -1;
 		Connection conn = getConnection();
 		result = dao.delete(conn, deptno);
+		Autocommit(conn, false);
+		if (result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
 		close(conn);
 		return result;
 	}

@@ -160,7 +160,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="Web_project" path="/web31" reloadable="true" source="org.eclipse.jst.jee.server:Web_project"/><Context docBase="32_web_project" path="/32root" reloadable="true" source="org.eclipse.jst.jee.server:32_web_project"/><Context docBase="WebProject" path="/WebProject" reloadable="true" source="org.eclipse.jst.jee.server:WebProject"/><Context docBase="32_web" path="/web" reloadable="true" source="org.eclipse.jst.jee.server:32_web"/><Context docBase="32_web2" path="/webroot" reloadable="true" source="org.eclipse.jst.jee.server:32_web2"/><Context docBase="webpracticeproject" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:webpracticeproject"/><Context docBase="Mclass0228" path="/mclass" reloadable="true" source="org.eclipse.jst.jee.server:Mclass0228"/><Context docBase="Web" path="/copyroot" reloadable="true" source="org.eclipse.jst.jee.server:Web"/></Host>
+      <Context docBase="Try" path="/try" reloadable="true" source="org.eclipse.jst.jee.server:Try"/><Context docBase="Mclass0228" path="/mclass" reloadable="true" source="org.eclipse.jst.jee.server:Mclass0228"/><Context docBase="Web" path="/copyroot" reloadable="true" source="org.eclipse.jst.jee.server:Web"/></Host>
     </Engine>
   </Service>
 </Server>

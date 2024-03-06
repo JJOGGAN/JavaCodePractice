@@ -46,5 +46,4 @@ public class DeptDeleteController extends HttpServlet {
 			throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 }

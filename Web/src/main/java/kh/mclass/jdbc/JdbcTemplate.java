@@ -16,8 +16,7 @@ public class JdbcTemplate {
 		Properties prop = new Properties(); // 애플리케이션의 환경설정과 관련된 속성을 저장 key:value
 		try {
 			String currentPath = JdbcTemplate.class.getResource("").getPath();
-			System.out.println(currentPath);
-			prop.load(new FileReader(currentPath+"driver.properties"));
+			prop.load(new FileReader(currentPath + "driver.properties")); /* properties 파일 연결 */
 			Class.forName(prop.getProperty("jdbc.driver"));
 			conn = DriverManager.getConnection(prop.getProperty("jdbc.url")
 											, prop.getProperty("jdbc.username")
@@ -50,5 +49,26 @@ public class JdbcTemplate {
 			e.printStackTrace();
 		}
 	}
-	//TODO commit/ rollback/setAutocommit
+	
+	public static void Autocommit(Connection conn, boolean autocommit) {
+		try {
+			if(conn != null) conn.setAutoCommit(autocommit);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public static void commit(Connection conn) {
+		try {
+			if(conn != null) conn.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public static void rollback(Connection conn) {
+		try {
+			if(conn != null) conn.rollback();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

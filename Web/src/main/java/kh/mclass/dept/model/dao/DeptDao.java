@@ -29,8 +29,8 @@ public class DeptDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			close(pstmt);
 			close(rs);
+			close(pstmt);
 		}
 
 		return result;
@@ -53,8 +53,8 @@ public class DeptDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			close(pstmt);
 			close(rs);
+			close(pstmt);
 		}
 		
 		return result;
