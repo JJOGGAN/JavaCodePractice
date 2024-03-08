@@ -21,36 +21,38 @@ public class DeptInsertController extends HttpServlet {
 		super();
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+//	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+//			throws ServletException, IOException {
+//		// ?deptno=71&dname=ABC&loc=seoul
+//
+//	} 애초에 doGet자체를 막아버린다
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//?deptno=71&dname=ABC&loc=seoul
+		//insert의 경우는 post방식으로만 넣는다. (보안성)
+		//get (url)로 입력이 가능하면 누구나 다 할 수 있으니까
 		String deptnoStr = request.getParameter("deptno");
 		String dname = request.getParameter("dname");
 		String loc = request.getParameter("loc");
 		int deptno = 0;
 		try {
-			deptno=Integer.parseInt(deptnoStr);
+			deptno = Integer.parseInt(deptnoStr);
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 		}
 		if (deptno != 0) {
 			Dept vo = new Dept(deptno, dname, loc);
 			int result = new DeptService().insert(vo);
-			if (result>0) {
-				response.sendRedirect(request.getContextPath()+"/dept/list");
-			}else {
+			if (result > 0) {
+				response.sendRedirect(request.getContextPath() + "/dept/list");
+			} else {
 				request.setAttribute("msg", "DEPT에 추가하지 못했습니다.");
 				request.getRequestDispatcher("/views/error/errorPage.jsp").forward(request, response);
 			}
-		}else {
+		} else {
 			request.setAttribute("msg", "DEPT에 추가하지 못했습니다.");
 			request.getRequestDispatcher("/views/error/errorPage.jsp").forward(request, response);
 		}
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
 	}
 
 }

@@ -18,10 +18,13 @@ public class DeptDeleteController extends HttpServlet {
 		super();
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+//doGet을 애초에 지워서 미연에 실수 방지
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// ?deptno=71
 		String deptnoStr = request.getParameter("deptno");
+//		String[] n5Arr request.getParameterValues("n5");  - checkbox랑 짝꿍
 		int deptno = 0;
 		try {
 			deptno = Integer.parseInt(deptnoStr);
@@ -40,10 +43,5 @@ public class DeptDeleteController extends HttpServlet {
 			request.setAttribute("msg", "DEPT에 없는 항목으로 삭제하지 못했습니다.");
 			request.getRequestDispatcher("/views/error/errorPage.jsp").forward(request, response);
 		}
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
 	}
 }
