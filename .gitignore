@@ -2,6 +2,8 @@
 bin/
 *.properties
 *.class
+*.classpath
+*.prefs
 02_Variable/
 02_VariableExam/
 03_Operator/
