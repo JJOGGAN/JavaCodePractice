@@ -38,12 +38,21 @@
 		var htmlValue = "";
 
 		for (var i = 1; i <= itemCount; i++) {
-			
+			//베이직 코드
+			/*
 			htmlValue += '<div>';
 			htmlValue += '<label for="menu-'+i+'">menu-'
 					+ i
 					+ '</label> <input type="checkbox" data-itemcode='+i+' id="menu-'+i+'"class="item">';
 			htmlValue += '</div>';
+			*/
+			htmlValue+=
+				`
+				<div>
+					<label for="menu-\${i}">menu-\${i}</label>
+					<input type="checkbox"  id="menu-\${i}" data-itemcode="\${i}" class="item">
+				</div>
+				`;
 		}
 		/* 안의 내용 지우고 넣어줘 : html에 htmlValue를 넣어줘  */
 		$(".checkboxs").html(htmlValue);
