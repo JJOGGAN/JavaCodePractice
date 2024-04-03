@@ -14,6 +14,7 @@
 
 .checkedItems {
 	clear: both;
+	border: 1px solid black;
 }
 
 .checkboxs {
@@ -59,7 +60,7 @@
 
 		/* 2. 전체선택 이벤트 등록 */
 		/* $("#allcheck").on("click",function(){}); */
-		$("#allCheck").on("click", allCheckHandler);
+		$("#allCheck").on("click", allCheckedHandler);
 
 		/* 4. items(menu)를 이벤트 등록  */
 		$(".item").on("click", itemCheckHandler);
@@ -117,7 +118,25 @@
 
 		/* 9. checkedItems 에 이벤트 발생 -> 바로그 item의 div를 제거 */
 		else {
-
+			console.log(this);
+			
+			var checkedElement = this;
+			var $checkedElement = $(this); //존레식의 자료형
+			checkedElement.innerHTML='';
+			$checkedElement.html(''); //변수 이름 앞에 $를 넣어준다 - inner클래스일 때 사용 : 안에 객체가 있는데 jquery형식이겠구나를 표현하는 것
+			$(".checkedItems").children().each(function (index,element) {
+				console.log(">>>>>>>checkedItems의 children각각")
+				console.log(this);
+				console.log($(this));
+				console.log($(this).data("itemcode"));
+				console.log($checkedElement.data("itemcode"));
+				if ($(this).data("itemcode") == $checkedElement.data("itemcode")) {
+					$(this).remove();
+					return;
+				}{
+					
+				}
+			})
 		}
 	}
 	/* 100. item 이벤트, 반대선택 이벤트 처리시 공통 부분을 함수도 만들기 */
@@ -134,8 +153,8 @@
 		}
 	}
 
-	/* 3. 전체선택 이벤트 러치 CB Heandler */
-	function allCheckHandler() {
+	/* 3. 전체선택 이벤트 처리 CB Heandler */
+	function allCheckedHandler() {
 		//console.log(this);
 		/* jquery의 object모양 */
 		console.log($(this));
@@ -158,7 +177,29 @@
 			$(".item").prop("checked", false);
 		}
 		 */
-
+		 
+		 var allchecked = $(this).prop("checked");
+		 $(".item").prop("checked", allchecked);
+		 
+		 /*10. 전체선택 처리 후 checkItems에도 전체 적용  : 전체선택을 눌러도 박스 안에 나왔다 사라졌다한다*/
+		if(allchecked){
+			$(".item").each(function(){
+				
+			console.log("===="):
+			var temp =".checkedItems > div[data-itemcode"+$(this).data("itemcode")+"]";
+			console.log($(temp).length);
+				
+			if(!$(temp).length){
+			var label =$(this).parent().children("label").html();	
+			var htmlValue='';
+			htmlValue+= '<div data-itemcode="'+$(this).data("itemcode")+'">';
+			htmlValue+= '<span>'+label+'</span>';
+			htmlValue+= '</div>';
+			$(".checkedItems").append(htmlValue); //기존 내용을 유지하면서 내용을 밀어넣음
+			}});
+			}else {
+				$(".checkedItems").html('');
+			}
 	}
 </script>
 </head>
