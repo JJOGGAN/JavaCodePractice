@@ -13,10 +13,37 @@ import kh.mclass.semim.member.model.dto.MemberDto;
 //MEM_PWD   NOT NULL VARCHAR2(20)  
 //MEM_EMAIL NOT NULL VARCHAR2(100) 
 public class MemberDao {
+	
+	//selelcCheckId
+	public int selectCheckId(Connection conn,String memId) {
+		int result = 0;
+		String sql ="SELECT COUNT(*) C FROM MEMBER WHERE MEM_ID=?";
+		PreparedStatement pstmt = null;
+		
+		ResultSet rs = null;
+		try {
+			pstmt =conn.prepareStatement(sql);
+			//?
+			pstmt.setString(1,memId);//sql의 ?에 값을 넣어서 DB에서 sql문을 실행하기 위한 것
+			rs=pstmt.executeQuery();
+			//resetSet 처리
+			if (rs.next()) {
+				result = rs.getInt("C");
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		close(rs);
+		close(pstmt);
+		return result;
+	}
+	
+	
 	//selectListAll
 	public List<MemberDto> selectAllList(Connection conn) {
 		List<MemberDto> result = null;
-		String sql ="SELELCT MEM_ID,MEM_PWD,MEM_EMAIL FROM MEMBER";
+		String sql ="SELECT MEM_ID,MEM_PWD,MEM_EMAIL FROM MEMBER";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
@@ -43,7 +70,7 @@ public class MemberDao {
 	//select one
 	public MemberDto selectOne(Connection conn,String memId) {
 		MemberDto result =null;
-		String sql ="SELELCT MEM_ID,MEM_PWD,MEM_EMAIL FROM MEMBER WHERE MEM_ID=?";
+		String sql ="SELECT MEM_ID,MEM_PWD,MEM_EMAIL FROM MEMBER WHERE MEM_ID=?";
 		PreparedStatement pstmt = null;
 		
 		ResultSet rs = null;
