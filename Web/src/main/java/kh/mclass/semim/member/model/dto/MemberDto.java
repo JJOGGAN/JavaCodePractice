@@ -12,9 +12,7 @@ public class MemberDto {
 	
 	
 	
-	public MemberDto() {
-		super();
-	}
+
 	public MemberDto(String memId, String memPwd, String memEmail) {
 		super();
 		this.memId = memId;
@@ -31,20 +29,14 @@ public class MemberDto {
 	public String getMemId() {
 		return memId;
 	}
-	public void setMemId(String memId) {
-		this.memId = memId;
-	}
+
 	public String getMemPwd() {
 		return memPwd;
 	}
-	public void setMemPwd(String memPwd) {
-		this.memPwd = memPwd;
-	}
+
 	public String getMemEmail() {
 		return memEmail;
 	}
-	public void setMemEmail(String memEmail) {
-		this.memEmail = memEmail;
-	}
+
 	
 }
