@@ -15,11 +15,11 @@ public class JdbcTemplate {
 		Connection conn = null;
 		Properties prop = new Properties(); // 애플리케이션의 환경설정과 관련된 속성을 저장 key:value
 		try {
-			String currentPath = JdbcTemplate.class.getResource("").getPath();
+			String currentPath = JdbcTemplate.class.getResource("./").getPath();
 			prop.load(new FileReader(currentPath + "driver.properties")); /* properties 파일 연결 */
 			Class.forName(prop.getProperty("jdbc.driver"));
 			if(islocalhost) {
-				conn = DriverManager.getConnection(prop.getProperty("jdbc.url")
+				conn = DriverManager.getConnection(prop.getProperty("jdbc.semi.localhost.url")
 						, prop.getProperty("jdbc.semi.username")
 						, prop.getProperty("jdbc.semi.password"));
 			}else {
@@ -40,7 +40,7 @@ public class JdbcTemplate {
 		Connection conn = null;
 		Properties prop = new Properties(); // 애플리케이션의 환경설정과 관련된 속성을 저장 key:value
 		try {
-			String currentPath = JdbcTemplate.class.getResource("").getPath();
+			String currentPath = JdbcTemplate.class.getResource("./").getPath();
 			prop.load(new FileReader(currentPath + "driver.properties")); /* properties 파일 연결 */
 			Class.forName(prop.getProperty("jdbc.driver"));
 
