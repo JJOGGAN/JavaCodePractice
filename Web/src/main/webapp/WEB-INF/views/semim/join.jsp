@@ -46,7 +46,7 @@ function loadedHandler(){
 			 async : true,  //true : 기본값 비동기식 false 동기식
 			 				//false : 가 되면 client:checkid 가 was로 갔다가 다시 돌아오는 이 그 사이의 시간동안
 			 				//화면이 띄워진 그 상태에서 화면동작은 전혀하지 않는다. 
-			 url : "${pageContext.request.contextPath}/join" //~로 가서 확인해줘
+			 url : "${pageContext.request.contextPath}/checkid" // ~로 가서 확인해줘
 			 ,method : "post"
 			 ,data : {cid : $("[name=id]").val(),k1:"v1",k2:"v2"}   //id --> controller 의 request.getParameter();에 들어가는 이름과 같아야한다. 
 		 	 //////////contentType은 data의 자료형
