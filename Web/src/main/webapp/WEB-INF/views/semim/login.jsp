@@ -13,7 +13,7 @@
 
 <!--form tag를 활용한 로그인 방법 1.  -->
 <fieldset>
-	<legend> 로그인</legend>
+	<legend> 로그인 form tag활용</legend>
 	<form action ="${pageContaxt.request.contextPath}/login " method="post"> <!-- ajax를 사용하면 action,method필요없음 -->
 	<div><label>id : </label><input type="text" name="id"></div>
 	<div> <label>pwd : </label><input type="password" name="pwd"></div>
@@ -23,10 +23,10 @@
 
 <!--ajax활용 방법  2.-->
 <fieldset>
-	<legend> 로그인</legend>
+	<legend> 로그인 ajax활용</legend>
 	<form id="frm-login"> <!-- ajax를 사용하면 action,method필요없음 -->  <!--form이 onsubmit방식을 가지고 있다  -->
-	<div><label>id : </label><input type="text" name="id"></div>
-	<div> <label>pwd : </label><input type="password" name="pwd"></div>
+	<div><label for="id">id : </label><input type="text" name="id" id="id"></div>
+	<div> <label for="pwd">pwd : </label><input type="password" name="pwd" id="pwd"></div>
 	<div><button type="button" class="btn submit">로그인</button></div>
 </form>
 </fieldset>
@@ -41,9 +41,9 @@
 	}
  	function frmClickHandler(){
  		 //location.href="${pageContext.request.contextPath}/login"; //location 이동하고 싶은 위치
-		console.log("클릭");
+		console.log("클릭");//checking
 		//console.log(document.getElementById("frm-login").serialize);
-		console.log($("#frm-login").serialize()); //form 태그 안에 name =값 모양을 나타내는 것
+		console.log("serialize"+$("#frm-login").serialize()); //form 태그 안에 name =값 모양을 나타내는 것
 		
 		$.ajax({
 			
