@@ -7,11 +7,30 @@ import java.util.List;
 
 import kh.mclass.semim.member.model.dao.MemberDao;
 import kh.mclass.semim.member.model.dto.MemberDto;
+import kh.mclass.semim.member.model.dto.MemberInfoDto;
 import kh.mclass.semim.member.model.dto.MemberLoginDto;
 
 public class MemberService {
 	private MemberDao dao = new MemberDao();
 	
+	//login 아이디와 이메일 정보를 가져오는 login
+	public MemberInfoDto loginGetInfo(MemberLoginDto dto) {
+		MemberInfoDto result = null;
+		Connection conn = getSemiConnection(true);
+		result = dao.loginGetInfo(conn, dto);
+		close(conn);
+		return result;
+	}
+	
+	// select Login
+	public int login(MemberLoginDto dto) {
+		int result = 0;
+		Connection conn = getSemiConnection(true);
+		result = dao.login(conn, dto);
+		close(conn);
+		return result;
+	}
+	//중복확인
 	public int selectCheckId(String memId) {
 		int result =0;
 		Connection conn = getSemiConnection(true);	
@@ -20,15 +39,7 @@ public class MemberService {
 		close(conn);
 		return result;
 	}
-	/////////수정 해야함
-	public int loginGetInfo(MemberLoginDto dto) {
-		int result =0;
-		Connection conn = getSemiConnection(true);	
-		result = dao.loginGetInfo(conn,dto);
-		
-		close(conn);
-		return result;
-	}
+	
 	
 	//select list - all
 	public List<MemberDto> selectAllList() {
