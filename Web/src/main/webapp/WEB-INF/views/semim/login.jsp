@@ -49,15 +49,16 @@
 			
 			url : "${pageContext.request.contextPath}/login"
 			,method: "post"
-			,data : {id : $("[name=id]").val(),pwd : $("[name=pwd]").val()}
+			,data : {id : $("#frm-login [name=id]").val(),pwd : $("#frm-login [name=pwd]").val()}
 			//,data:$("#frm-login").serialize()
 			,success : function(result){
-				console.log(result);
+				console.log(">>>>>>result값을 보여줘"+result);//result확인용
 				if(result == 1){
 					alert("반갑습니다.");
 					location.href="${pageContext.request.contextPath}/main";
 				}
 				else {
+					console.log("result값을 보여줘"+result);
 					alert("아이디와 비밀번호를 확인해주세요.");
 					$("[name=pwd]").val("");
 					location.href = "${pageContext.request.contextPath}/login"; 
