@@ -7,6 +7,7 @@ import java.util.List;
 
 import kh.mclass.semim.member.model.dao.MemberDao;
 import kh.mclass.semim.member.model.dto.MemberDto;
+import kh.mclass.semim.member.model.dto.MemberLoginDto;
 
 public class MemberService {
 	private MemberDao dao = new MemberDao();
@@ -15,6 +16,15 @@ public class MemberService {
 		int result =0;
 		Connection conn = getSemiConnection(true);	
 		result = dao.selectCheckId(conn,memId);
+		
+		close(conn);
+		return result;
+	}
+	/////////수정 해야함
+	public int loginGetInfo(MemberLoginDto dto) {
+		int result =0;
+		Connection conn = getSemiConnection(true);	
+		result = dao.loginGetInfo(conn,dto);
 		
 		close(conn);
 		return result;

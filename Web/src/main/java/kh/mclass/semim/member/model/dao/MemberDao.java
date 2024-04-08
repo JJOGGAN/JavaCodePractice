@@ -9,10 +9,38 @@ import java.util.List;
 
 import static kh.mclass.jdbc.JdbcTemplate.*;
 import kh.mclass.semim.member.model.dto.MemberDto;
+import kh.mclass.semim.member.model.dto.MemberInfoDto;
+import kh.mclass.semim.member.model.dto.MemberLoginDto;
 //MEM_ID    NOT NULL VARCHAR2(20)  
 //MEM_PWD   NOT NULL VARCHAR2(20)  
 //MEM_EMAIL NOT NULL VARCHAR2(100) 
 public class MemberDao {
+	
+	//sleelect on login
+	public MemberInfoDto selectLogin(Connection conn,MemberLoginDto dto) {
+		MemberInfoDto result =null;
+		String sql ="SELECT MEM_ID,MEM_EMAIL C FROM MEMBER WHERE MEM_ID=? AND MEM_PWD=?";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt =conn.prepareStatement(sql);
+			//?
+			pstmt.setString(1, dto.getMemId());
+			pstmt.setString(2, dto.getMemPwd());
+			rs=pstmt.executeQuery();
+
+			//resetSet 처리
+			if (rs.next()) {
+				result = new MemberInfoDto(rs.getString("MEM_ID"),rs.getString("MEM_PWD"));
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		close(rs);
+		close(pstmt);
+		return result;
+	}
 	
 	//selelcCheckId
 	public int selectCheckId(Connection conn,String memId) {
