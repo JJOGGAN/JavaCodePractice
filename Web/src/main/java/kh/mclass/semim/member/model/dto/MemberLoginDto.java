@@ -20,7 +20,7 @@ public class MemberLoginDto {
 	
 	@Override
 	public String toString() {
-		return "MemberDto [memId=" + memId + ", memPwd=" + memPwd + "]";
+		return "MemberDto [memId=" + memId + ", memPwd=" + memPwd +"]";
 	}
 	
 	public String getMemId() {
