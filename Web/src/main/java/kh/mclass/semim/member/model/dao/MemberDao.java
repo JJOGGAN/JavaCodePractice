@@ -16,31 +16,59 @@ import kh.mclass.semim.member.model.dto.MemberLoginDto;
 //MEM_EMAIL NOT NULL VARCHAR2(100) 
 public class MemberDao {
 	
-	//sleelect on login
-	public MemberInfoDto selectLogin(Connection conn,MemberLoginDto dto) {
-		MemberInfoDto result =null;
-		String sql ="SELECT MEM_ID,MEM_EMAIL C FROM MEMBER WHERE MEM_ID=? AND MEM_PWD=?";
+	//loginGetInfo과 login 둘 중 필요한 것으로 활용하면 됨
+	//둘 다 로그인 후 유저의 정보를 어떤 것을 가지고 활동 할 것인가의 문제이다
+	
+	// select one login
+	public MemberInfoDto loginGetInfo(Connection conn, MemberLoginDto dto) {
+		MemberInfoDto result = null;
+		String sql = "SELECT MEM_ID, MEM_EMAIL FROM MEMBER WHERE MEM_ID=? AND MEM_PWD=?";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			pstmt =conn.prepareStatement(sql);
-			//?
+			pstmt = conn.prepareStatement(sql);
+			// ? 처리
 			pstmt.setString(1, dto.getMemId());
 			pstmt.setString(2, dto.getMemPwd());
-			rs=pstmt.executeQuery();
-
-			//resetSet 처리
-			if (rs.next()) {
-				result = new MemberInfoDto(rs.getString("MEM_ID"),rs.getString("MEM_PWD"));
-			}
+			rs = pstmt.executeQuery();
+			// ResetSet처리
+			if(rs.next()) {
+				result = new MemberInfoDto(rs.getString("MEM_ID"), rs.getString("MEM_EMAIL"));
+			}			
 		} catch (SQLException e) {
-			
 			e.printStackTrace();
 		}
 		close(rs);
 		close(pstmt);
 		return result;
 	}
+	
+	
+	// select one login
+	public int login(Connection conn, MemberLoginDto dto) {
+		int result = 0;
+		String sql = "SELECT COUNT(*) C  FROM MEMBER WHERE MEM_ID=? AND MEM_PWD=?";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			// ? 처리
+			pstmt.setString(1, dto.getMemId());
+			pstmt.setString(2, dto.getMemPwd());
+			rs = pstmt.executeQuery();
+			// ResetSet처리
+			if(rs.next()) {
+				result = rs.getInt("C");
+			}			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		close(rs);
+		close(pstmt);
+		return result;
+	}
+	
+	
 	
 	//selelcCheckId
 	public int selectCheckId(Connection conn,String memId) {
