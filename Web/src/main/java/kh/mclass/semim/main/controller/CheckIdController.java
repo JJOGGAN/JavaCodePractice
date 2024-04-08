@@ -33,7 +33,7 @@ public class CheckIdController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println(">>>>/checkid doPost id check time!!!!!!!");
 		String memId = request.getParameter("cid");
-		System.out.println("memid : "+memId);
+		System.out.println(">>>>>>memid : "+memId);
 		//TODO DB로 여정 떠남
 		
 		int result = new MemberService().selectCheckId(memId);
