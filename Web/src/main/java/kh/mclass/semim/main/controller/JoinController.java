@@ -37,6 +37,7 @@ public class JoinController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("성공!!!!!!!");
 		String memId= request.getParameter("id");
+		System.out.println(">>>>>>> join post id:"+request.getParameter("id"));//확인용
 		String memPwd = request.getParameter("pwd");
 		String memEmail = request.getParameter("email");
 		MemberDto dto = new MemberDto(memId, memPwd, memEmail);
