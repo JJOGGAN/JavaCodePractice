@@ -11,63 +11,36 @@ public class BoardListDto {
 	
 	private Integer boardId;
 	private String subject;
-
-	private String writeIime;
-
+	private String writeTime;  // TIMESTAMP
 	private String boardWriter;
 	private Integer readCount;
-	
-	
-	
-	
-	public BoardListDto() {
-		super();
+	@Override
+	public String toString() {
+		return "BoardListDto [boardId=" + boardId + ", subject=" + subject + ", writeTime=" + writeTime
+				+ ", boardWriter=" + boardWriter + ", readCount=" + readCount + "]";
 	}
-	public BoardListDto(Integer boardId, String subject, String content, String writeIime, String logIp, String boardWriter,
-			Integer readCount) {
+	public BoardListDto(Integer boardId, String subject, String writeTime, String boardWriter, Integer readCount) {
 		super();
 		this.boardId = boardId;
 		this.subject = subject;
-		this.writeIime = writeIime;
+		this.writeTime = writeTime;
 		this.boardWriter = boardWriter;
 		this.readCount = readCount;
-	}
-	@Override
-	public String toString() {
-		return "BoardDto [boardId=" + boardId + ", subject=" + subject + ", writeIime="
-				+ writeIime + ", boardWriter=" + boardWriter + ", readCount=" + readCount + "]";
 	}
 	public Integer getBoardId() {
 		return boardId;
 	}
-	public void setBoardId(Integer boardId) {
-		this.boardId = boardId;
-	}
 	public String getSubject() {
 		return subject;
 	}
-	public void setSubject(String subject) {
-		this.subject = subject;
+	public String getWriteTime() {
+		return writeTime;
 	}
-
-	public String getWriteIime() {
-		return writeIime;
-	}
-	public void setWriteIime(String writeIime) {
-		this.writeIime = writeIime;
-	}
-
 	public String getBoardWriter() {
 		return boardWriter;
 	}
-	public void setBoardWriter(String boardWriter) {
-		this.boardWriter = boardWriter;
-	}
 	public Integer getReadCount() {
 		return readCount;
-	}
-	public void setReadCount(Integer readCount) {
-		this.readCount = readCount;
 	}
 	
 }

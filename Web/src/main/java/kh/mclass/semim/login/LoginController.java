@@ -17,6 +17,7 @@ import kh.mclass.semim.member.model.service.MemberService;
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -29,6 +30,8 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String prePage = request.getParameter("prePage");
+		request.getSession().setAttribute("prePage", prePage);
 		//doGet은 마지막 문장이 이 문장입니다 대부분
 		request.getRequestDispatcher("/WEB-INF/views/semim/login.jsp").forward(request, response); //login.jsp로 보냄
 		// 페이지를 여는 것 자체는 get에서 이루어진다
