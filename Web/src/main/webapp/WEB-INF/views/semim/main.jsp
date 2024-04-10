@@ -50,7 +50,9 @@
 		$(".btn.logout").on("click",btnLogoutClickHandler);
 	}
  	function btnJoinClickHandler(){
- 		 location.href="${pageContext.request.contextPath}/join"; //location 이동하고 싶은 위치
+ 		window.open("${pageContext.request.contextPath}/join","_blank"
+ 				, "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400");
+ 		// location.href="${pageContext.request.contextPath}/join"; //location 이동하고 싶은 위치
 		
 	}
 	function btnLoginClickHandler(){
@@ -62,7 +64,7 @@
 		
 	}
 	function btnBoardClickHandler(){
-		location.href="${pageContext.request.contextPath}/board";
+		location.href="${pageContext.request.contextPath}/board/list";
 		
 	} 
 	
