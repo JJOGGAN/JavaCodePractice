@@ -15,13 +15,20 @@ import kh.mclass.semim.board.model.dto.BoardDto;
 //WRITE_TIME   NOT NULL TIMESTAMP(6)   
 //LOG_IP                VARCHAR2(15)   
 //BOARD_WRITER NOT NULL VARCHAR2(20)   
-//READ_COUNT   NOT NULL NUMBER     
+//READ_COUNT   NOT NULL NUMBER    
+import kh.mclass.semim.board.model.dto.BoardListDto;
+
+//private Integer boardId;
+//private String subject;
+//private String writeIime;
+//private String boardWriter;
+//private Integer readCount;
 
 public class BoardDao {
 
-	public List<BoardDto> selectAllList(Connection conn){
-		List<BoardDto> result = null;
-		String sql = "SELECT BOARD_ID,SUBJECT,CONTENT,WRITE_TIME,LOG_IP,BOARD_WRITER,READ_COUNT FROM BOARD";
+	public List<BoardListDto> selectAllList(Connection conn) {
+		List<BoardListDto> result = null;
+		String sql = "SELECT BOARD_ID, SUBJECT,CONTENT,WRITE_TIME,LOG_IP,BOARD_WRITER,READ_COUNT FROM BOARD";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
@@ -29,9 +36,13 @@ public class BoardDao {
 			rs=pstmt.executeQuery(); //pstmt로 insert, update, delete 로 한 그 값을 가져오는 것이 ResultSet
 			//rs처리
 			if (rs.next()) {
-				result = new ArrayList<BoardDto>();
+				result = new ArrayList<BoardListDto>();
 				do {
-					BoardDto dto = new BoardDto(rs.getInt("BOARD_ID"), rs.getString("SUBJECT"), rs.getString("CONTENT"), rs.getString("WRITE_TIME"),  rs.getString("LOG_IP"),  rs.getString("BOARD_WRITER"), rs.getInt("READ_COUNT"));
+					BoardListDto dto = new BoardListDto(	
+							rs.getInt("BOARD_ID"),rs.getString("SUBJECT"),
+							rs.getString("WRITE_TIME"),rs.getString("BOARD_WRITER"),
+							rs.getInt("READ_COUNT")
+							);
 					result.add(dto);
 				}while(rs.next());
 			}
