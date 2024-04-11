@@ -48,7 +48,7 @@ function loadedHandler(){
 			 				//화면이 띄워진 그 상태에서 화면동작은 전혀하지 않는다. 
 			 url : "${pageContext.request.contextPath}/checkid" // ~로 가서 확인해줘
 			 ,method : "post"
-			 ,data : {cid : $("[name=id]").val(),k1:"v1",k2:"v2"}   //id --> controller 의 request.getParameter();에 들어가는 이름과 같아야한다. 
+			 ,data : {cid : $("[name=id]").val()}   //id --> controller 의 request.getParameter();에 들어가는 이름과 같아야한다. 
 		 	 //////////contentType은 data의 자료형
 			 
 			 

@@ -78,10 +78,10 @@
 							if (result == 1) {
 								alert("반갑습니다.");
 								var prePage = "${prePage}";
-								if (prepage =="write") {
+								if (prePage =="write") {
 								 location.href = "${pageContext.request.contextPath}/board/write";
 								}
-								//location.href = "${pageContext.request.contextPath}/main";
+								location.href = "${pageContext.request.contextPath}/main";
 							} else {
 								console.log("result값을 보여줘" + result);
 								alert("아이디와 비밀번호를 확인해주세요.");
