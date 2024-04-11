@@ -9,6 +9,7 @@ public class BoardListDto {
 //	BOARD_WRITER NOT NULL VARCHAR2(20)   
 //	READ_COUNT   NOT NULL NUMBER     
 	
+	//게시판에서 각내용들 리스트 쫙 뽑아줄 때 쓸 dto
 	private Integer boardId;
 	private String subject;
 	private String writeTime;  // TIMESTAMP
