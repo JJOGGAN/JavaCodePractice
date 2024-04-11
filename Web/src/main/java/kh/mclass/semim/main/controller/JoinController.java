@@ -41,7 +41,7 @@ public class JoinController extends HttpServlet {
 		String memPwd = request.getParameter("pwd");
 		String memEmail = request.getParameter("email");
 		MemberDto dto = new MemberDto(memId, memPwd, memEmail);
-		int result = new MemberService().selectCheckId(memId);
+		int result = new MemberService().insert(dto);
 		if(result < 0 ) {
 			// 회원가입실패시
 			response.sendRedirect(request.getContextPath()+"/main");//getcontestpath를 우리는 몰라 그러니 그걸 요청했어 그리고 거기에 main을 붙여서 그걸 reponse온거에 같이 보내!!!! redirect해!!!!
@@ -51,6 +51,7 @@ public class JoinController extends HttpServlet {
 		// 회원가입정상
 		response.sendRedirect(request.getContextPath()+"/login");
 		System.out.println("성공");
+		System.out.println(dto);
 	}
 
 }

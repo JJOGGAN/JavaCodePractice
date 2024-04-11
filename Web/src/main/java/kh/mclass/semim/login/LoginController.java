@@ -35,7 +35,6 @@ public class LoginController extends HttpServlet {
 		//doGet은 마지막 문장이 이 문장입니다 대부분
 		request.getRequestDispatcher("/WEB-INF/views/semim/login.jsp").forward(request, response); //login.jsp로 보냄
 		// 페이지를 여는 것 자체는 get에서 이루어진다
-		System.out.println("login doGet");
 		
 	}
 
