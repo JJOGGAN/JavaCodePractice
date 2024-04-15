@@ -11,9 +11,11 @@
 </head>
 <body>
 <h1>Semim Board Write 게시판!!!!! 글쓰기!!! </h1>
-<form id="frm-write"> <!-- form tag의 아이디는 유니크하게 들어간다 -->
+<form id="frm-write" enctype="multipart/form-data"> <!-- form tag의 아이디는 유니크하게 들어간다 -->
 	<div><label>제목</label><input type="text" name="subject"></div>
 	<div><label>내용</label><textarea name="content">여깁니다</textarea></div>
+	<div><button type="button" class="btn file">파일추가</button></div>
+	
 	<div><button type="button" class="btn write">글쓰기</button></div>
 </form>
 
@@ -22,8 +24,19 @@ $(loadedHandler)
 function loadedHandler(){
 	//event 등록
 	$(".btn.write").on("click",btnWriteClickHandler);
+	$(".btn.file").on("click",btnFileClickHandler);
 
 }
+	function btnFileClickHandler(){
+		var htmlVal=`<div><input type="file" name="uploadfiles" required><button type="button" class="btn file-cancle">취소</button></div>`;
+		$(this).after(htmlVal); // 나를 중심으로 뒤에 this = <div><button type="button" class="btn file">파일추가</button></div>
+		$(".btn.file-cancle").off("click"); //기존에 걸려있던 click 이벤트 제거 해당 코드가 없다면 n번째 취소 버튼을 누르면 취소가 n번 실행됨
+		$(".btn.file-cancle").on("click",btnFileClickHandler);
+	}
+	function btnFileCancleClickHandler(){
+		console.log("btnFileCancleClickHandler"); //확인용
+		$(this).parent().remove();
+	}
 	function btnWriteClickHandler(){
 /* 	console.log($("[name=subject]").val());
 	console.log($("[name=content]").val().trim());
@@ -53,6 +66,8 @@ function loadedHandler(){
 	var frm =document.getElementById("frm-write");
 	frm.method="post"; /* content내용은 길기 때문에 post형식으로 간다 */
 	frm.action = "${pageContext.request.contextPath}/board/write";//가고싶은 위치
+	//enctype="multipart/form-data" //form tag대신 해당 위치에 넣어줘도 된다. 반드시 필요한 코드
+									//form 태그 내부에 input type="file"이 있다면!!
 	frm.submit();
 }
 	</script>
