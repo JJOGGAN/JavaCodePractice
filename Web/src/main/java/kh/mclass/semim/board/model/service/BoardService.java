@@ -13,6 +13,7 @@ import kh.mclass.semim.board.model.dto.BoardInsertDto;
 import kh.mclass.semim.board.model.dto.BoardListDto;
 import kh.mclass.semim.board.model.dto.BoardReadDto;
 import kh.mclass.semim.board.model.dto.BoardReplyListDto;
+import kh.mclass.semim.board.model.dto.BoardReplyWriteDto;
 
 public class BoardService {
 	private BoardDao dao = new BoardDao();
@@ -28,6 +29,8 @@ public class BoardService {
 //		close(conn);
 //		return result;
 //	}
+	
+	
 	
 	
 	// select list - all
@@ -68,29 +71,79 @@ public class BoardService {
 		System.out.println("selectPageList() : "+result);
 		return result;
 	}
+	//댓글 리스트 보여주는 것
+	// select list - board reply
+	public List<BoardReplyListDto> selectBoardReplyList(Integer boardId) {
+		List<BoardReplyListDto> result = null;
+		Connection conn = getSemiConnection(true);
+		result = dao.selectBoardReplyList(conn, boardId);
+		close(conn);
+		return result;
+	}
 	
 	
-	
-	
+	//게시판들어갔을 때 보드 리스트 보여주는 것
+	// select list - all
+	public List<BoardListDto> selectAllList() {
+		List<BoardListDto> result = null;
+		Connection conn = getSemiConnection(true);
+		result = dao.selectAllList(conn);
+		close(conn);
+		return result;
+	}
 	
 	
 	//select one
+	//클라이언트에게 게시글 중에서 보여줄 값만 따로 dto 만든 후 BoardDto -> BoardReadDto로 변경
 	public BoardReadDto selectOne(Integer boardId) {
 		BoardReadDto result =null;
+		
 		Connection conn = getSemiConnection(true);	
 		result = dao.selectOne(conn,boardId);
+		
+		if (result != null) {//조회수 확인하기
+			dao.updateReadCount(conn,boardId); 
+		}
 		List<BoardReplyListDto> replylist = dao.selectBoardReplyList(conn, boardId);
 		result.setReplydtolist(replylist);
 		
 		close(conn);
 		return result;
 	}
+	
+	// insert - boardreply 게시글에 댓글 달기
+	public int insertReply(BoardReplyWriteDto dto) {
+		int result = 0;
+		int resultupdate = 0;
+		Connection conn = getSemiConnection(true);
+		autocommit(conn, false);
+		if(dto.getBoardReplyId() != 0) {
+			resultupdate = dao.updateReplyStep(conn, dto.getBoardReplyId());
+			if(resultupdate > -1) {
+				result = dao.insertRReply(conn, dto);
+			}
+		} else {
+			result = dao.insertReply(conn, dto);
+		}
+		if(resultupdate > -1 && result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	
+	
+	
+	
 	//insert
 	public int insert(BoardInsertDto  dto) {
 		int result = 0;
 		//INSERT INTO MEMBER VALUES('kh1','pwd1','kh1@a.com');
 		Connection conn = getSemiConnection(true);
-		result = dao.insert(conn,dto);
+		int sequencNum = dao.getSequenceNum(conn);
+		result = dao.insert(conn,dto,sequencNum);
 		close(conn);
 		return result;
 	}
