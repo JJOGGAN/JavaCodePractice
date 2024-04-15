@@ -12,7 +12,7 @@ import kh.mclass.semim.board.model.service.BoardService;
 /**
  * Servlet implementation class BoardReadController
  */
-@WebServlet("/BoardReadController")
+@WebServlet("/board/read")
 public class BoardReadController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private BoardService service = new BoardService();
