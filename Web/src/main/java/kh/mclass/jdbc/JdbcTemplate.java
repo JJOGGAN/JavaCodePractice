@@ -76,7 +76,7 @@ public class JdbcTemplate {
 		}
 	}
 	
-	public static void Autocommit(Connection conn, boolean autocommit) {
+	public static void autocommit(Connection conn, boolean autocommit) {
 		try {
 			if(conn != null) conn.setAutoCommit(autocommit);
 		} catch (Exception e) {
