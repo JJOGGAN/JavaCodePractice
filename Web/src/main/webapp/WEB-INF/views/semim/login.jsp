@@ -67,11 +67,13 @@
 
 						url : "${pageContext.request.contextPath}/login",
 						method : "post",
+						//방법1
 						data : {
 							id : $("#frm-login [name=id]").val(),
 							pwd : $("#frm-login [name=pwd]").val()
 						}
-						//,data:$("#frm-login").serialize()
+						//방법2
+						//,data:$("#frm-login").serialize() 
 						,
 						success : function(result) {
 							console.log(">>>>>>result값을 보여줘" + result);//result확인용
