@@ -19,6 +19,13 @@ function checkLogin(msg,prePage){
 
 	return false;
 }
+//ajax의 error 부분은 공통적이기 때문에 공통 함수로 만들어 사용한다
+function ajaxErrorHandler (request, status, error){
+	alert("code: "+request.status + "\n" + "message: " 
+			+ request.responseText + "\n"
+			+ "error: "+error);
+
+}
 
 
 
