@@ -31,7 +31,7 @@ public class DeptService {
 		int result = -1;
 		Connection conn = getConnection();
 		result = dao.insert(conn, vo);
-		Autocommit(conn, false);
+		autocommit(conn, false);
 		if (result > 0) {
 			commit(conn);
 		}else {
@@ -45,7 +45,7 @@ public class DeptService {
 		int result = -1;
 		Connection conn = getConnection();
 		result = dao.delete(conn, deptno);
-		Autocommit(conn, false);
+		autocommit(conn, false);
 		if (result > 0) {
 			commit(conn);
 		}else {
