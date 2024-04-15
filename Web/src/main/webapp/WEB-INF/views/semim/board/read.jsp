@@ -18,7 +18,7 @@
 <form id="frm-reply">
 	<div><label>댓글</label><input type="text" name="content" required><button type="button" class="btn replay" >댓글달기</button></div>
 </form>
-
+[[<div>${dto.replydtolist}</div>]]
 <script>
 $(loadedHandler);
 function loadedHandler(){

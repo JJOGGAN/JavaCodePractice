@@ -1,6 +1,10 @@
 package kh.mclass.semim.board.model.dto;
 
-public class BoardDto {
+import java.util.List;
+
+import javax.swing.text.AbstractDocument.Content;
+
+public class BoardReadDto {
 //	BOARD_ID     NOT NULL NUMBER         
 //	SUBJECT      NOT NULL VARCHAR2(120)  
 //	CONTENT      NOT NULL VARCHAR2(4000) 
@@ -11,75 +15,69 @@ public class BoardDto {
 	
 	private Integer boardId;
 	private String subject;
-	private String content; //이 파일을 여러곳에서 쓰면 안된다
+	private String content;
 	private String writeIime;
 	private String logIp;
 	private String boardWriter;
 	private Integer readCount;
+	private List<BoardReplyListDto> replydtolist;
 	
 	
 	
-	
-	public BoardDto() {
+	public BoardReadDto() {
 		super();
 	}
-	public BoardDto(Integer boardId, String subject, String content, String writeIime, String logIp, String boardWriter,
+	public BoardReadDto(Integer boardId, String subject, String content, String writeIime, String logIp, String boardWriter,
 			Integer readCount) {
 		super();
 		this.boardId = boardId;
 		this.subject = subject;
+		//줄바꾸기, 띄워쓰기 HTML 태그로 변경하는 코드
+		//DB를 꺼내오는 부분에 작성
+		content=content.replaceAll("\\r?\\n","<br>"); //\r또는\n을 찾으면 <br>로 전환해달라
+		content=content.replaceAll(" ","&nbsp"); //띄워쓰기는 &nbsp(jsp 띄워쓰기)로  표시해달라
 		this.content = content;
 		this.writeIime = writeIime;
 		this.logIp = logIp;
 		this.boardWriter = boardWriter;
 		this.readCount = readCount;
 	}
+
+	
 	@Override
 	public String toString() {
-		return "BoardDto [boardId=" + boardId + ", subject=" + subject + ", content=" + content + ", writeIime="
-				+ writeIime + ", logIp=" + logIp + ", boardWriter=" + boardWriter + ", readCount=" + readCount + "]";
+		return "BoardReadDto [boardId=" + boardId + ", subject=" + subject + ", content=" + content + ", writeIime="
+				+ writeIime + ", logIp=" + logIp + ", boardWriter=" + boardWriter + ", readCount=" + readCount
+				+ ", replydtolist=" + replydtolist + "]";
 	}
 	public Integer getBoardId() {
 		return boardId;
 	}
-	public void setBoardId(Integer boardId) {
-		this.boardId = boardId;
-	}
 	public String getSubject() {
 		return subject;
-	}
-	public void setSubject(String subject) {
-		this.subject = subject;
 	}
 	public String getContent() {
 		return content;
 	}
-	public void setContent(String content) {
-		this.content = content;
-	}
 	public String getWriteIime() {
 		return writeIime;
-	}
-	public void setWriteIime(String writeIime) {
-		this.writeIime = writeIime;
 	}
 	public String getLogIp() {
 		return logIp;
 	}
-	public void setLogIp(String logIp) {
-		this.logIp = logIp;
-	}
 	public String getBoardWriter() {
 		return boardWriter;
-	}
-	public void setBoardWriter(String boardWriter) {
-		this.boardWriter = boardWriter;
 	}
 	public Integer getReadCount() {
 		return readCount;
 	}
-	public void setReadCount(Integer readCount) {
-		this.readCount = readCount;
+	public List<BoardReplyListDto> getReplydtolist() {
+		return replydtolist;
 	}
+	public void setReplydtolist(List<BoardReplyListDto> replydtolist) {
+		this.replydtolist = replydtolist;
+	}
+	
+
 	
 }

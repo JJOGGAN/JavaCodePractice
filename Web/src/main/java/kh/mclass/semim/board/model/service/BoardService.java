@@ -11,6 +11,8 @@ import kh.mclass.semim.board.model.dao.BoardDao;
 import kh.mclass.semim.board.model.dto.BoardDto;
 import kh.mclass.semim.board.model.dto.BoardInsertDto;
 import kh.mclass.semim.board.model.dto.BoardListDto;
+import kh.mclass.semim.board.model.dto.BoardReadDto;
+import kh.mclass.semim.board.model.dto.BoardReplyListDto;
 
 public class BoardService {
 	private BoardDao dao = new BoardDao();
@@ -73,10 +75,12 @@ public class BoardService {
 	
 	
 	//select one
-	public BoardDto selectOne(Integer boardId) {
-		BoardDto result =null;
+	public BoardReadDto selectOne(Integer boardId) {
+		BoardReadDto result =null;
 		Connection conn = getSemiConnection(true);	
 		result = dao.selectOne(conn,boardId);
+		List<BoardReplyListDto> replylist = dao.selectBoardReplyList(conn, boardId);
+		result.setReplydtolist(replylist);
 		
 		close(conn);
 		return result;
