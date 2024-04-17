@@ -55,17 +55,26 @@
 </head>
 <body>
 <h1>Semim Board Read</h1>
-<div>
+
 	<div>${dto.subject }</div>
 <div class="board grid">
 	<div class="flex">
 		<div>${dto.boardId }</div>
 		<div>${dto.boardWriter }</div>
-		<div>${dto.writeTime }</div>
+		<%-- <div>${dto.writeTime }</div> --%>
+		
 		<div>${dto.readCount }</div>
 	</div>
 	<div class="subject">${dto.subject }</div>
 	<div>${dto.content }</div>
+	<div>
+		<c:if test="${not empty dto.filedtolist}">
+		<!--파일 다운로드하기  -->
+			<c:forEach items="${dto.filedtolist}" var="filedto">
+		<div><a href="${pageContext.request.contextPath }/files/${filedto.savedFilePathName}" download="${filedto.orginalFileName }">${filedto.orginalFileName }</a></div>
+		</c:forEach>
+		</c:if>
+	</div>
 	<div>${dto.readCount }</div>
 	<div>
 		<form id="frm-reply">
@@ -78,7 +87,10 @@
 		</form>
 	</div>
 	<div class="reply-wrap">
+<%-- 	
+	
 		<c:forEach items="${dto.replydtolist }" var="replydto">
+		<!--result에 담겨온 것을 여기서 뿌려줘  -->
 			<form class="frm-rreply">
 			<input type="hidden" name="boardId" value="${dto.boardId }">
 			<input type="hidden" name="boardReplyId" value="${replydto.boardReplyId }"> <!--replydto는 forEach에서만 적용되는 변수명  -->
@@ -95,6 +107,7 @@
 			</div>
 			</form>
 		</c:forEach>
+	 --%>
 	</div>
 </div>
 <form id="frm-reply">
@@ -107,11 +120,23 @@ function loadedHandler(){
 	//event 등록
 	$(".btn.replay").on("click", btnReplyClickHandler);
 	$(".btn.rreplay").on("click", btnRReplyClickHandler);
-	$(".btn.rreplycontent.show").on("click", btnRReplyContentClickHandler);
+	//$(".btn.rreplycontent.show").on("click", btnRReplyContentClickHandler);
+	//btnRReplyContentClickHandler대신 displayReplyWrap을 수행, ajax로 한 번 갔다 와야함
+	$.ajax({
+		//읽으러 갈 곳
+		url: "${pageContext.request.contextPath }/board/reply/read.ajax" 
+			,method:"post" //get도 상관 없음
+			,error : ajaxErrorHandler
+			,data: {boardId : "${dto.boardId}"} //El tag 따옴표 필수
+			,dataType:"json"
+			,success: function(result){
+				console.log(result);
+				displayReplyWrap(result);
+				
+			}
+	});
 }
 function btnRReplyClickHandler(){
-
-
 	//Login 페이지로 이동
 	if(checkLogin("로그인되어야 글쓰기가 가능합니다.\n로그인페이지로 이동하시겠습니까?","write")){
 		return;
@@ -119,7 +144,6 @@ function btnRReplyClickHandler(){
 	
 	if($(this).parents(".frm-rreply").find("[name=boardReplyContent]").val().trim().length == 0){
 		alert("입력된 글이 없습니다. 입력 후 글 등록해주세요.");
-		//입력값이 없음 : 있을 수 없는 행동이기 때문에 아예 게시글 목록으로 보내버림
 		return;
 	}
 	console.log($(this).parents(".frm-rreply").serialize());
@@ -141,6 +165,7 @@ function btnRReplyClickHandler(){
 				alert("댓글 등록에 실패했습니다. 다시 시도해주세요.");
 				return;
 			}
+			//js의 obj 형태로 온다
 			displayReplyWrap(result);
 		}
 	});
@@ -159,11 +184,11 @@ function btnReplyClickHandler(){
 	
 	$.ajax({
 		url: "${pageContext.request.contextPath }/board/reply/write.ajax"
-		,method:"post"
+		,method:"post"//get : url을 바로 작성하면 해당페이지로 이동 가능 post는 url 접근 불가
 		,error : ajaxErrorHandler
 		,data: $("#frm-reply").serialize()
 		,dataType:"json"
-		,success: function(result){
+		,success: function(result){ //result에는 list로 담겨옴 boradReplyListDto를 service랑 dao 참고해서 볼 것 (service랑 dao에서 list로 받아오잖아요)
 			console.log(result);
 			if(result == "-1"){
 				alert("댓글 작성이 되지 않았습니다. 게시글 목록으로 이동 후 다시 작성해주세요.");
@@ -178,35 +203,7 @@ function btnReplyClickHandler(){
 		}
 	});
 }
-function displayReplyWrap(datalist){
-	console.log("${dto.boardId }");
-	var htmlVal = '';
-	for(var idx in datalist){
-		var replydto = datalist[idx];
-		htmlVal += `
-		<form class="frm-rreply">
-		<input type="hidden" name="boardId" value="${dto.boardId }">
-		<input type="hidden" name="boardReplyId" value="\${replydto.boardReplyId }">
-		<input type="hidden" name="boardReplyLevel" value="\${replydto.boardReplyLevel }">
-		<input type="hidden" name="boardReplyStep" value="\${replydto.boardReplyStep }">
-		<input type="hidden" name="boardReplyRef" value="\${replydto.boardReplyRef }">
-		<div  class="boardreply grid">
-			<div>\${replydto.boardReplyId }</div>
-			<div>\${replydto.boardReplyContent }</div>
-			<div>\${replydto.boardReplyWriteTime }</div>
-			<div>\${replydto.boardReplyWriter }</div>
-			<div><button type="button" class="btn show rreplycontent">ㄷㄷ글</button></div>
-			<div class="rreplycontent span" ><input type="text" name="boardReplyContent" ><button type="button" class="btn rreplay" >등록</button> </div>
-		</div>
-		</form>
-		`;
-	}
-	$(".reply-wrap").html(htmlVal);
-	// html(새로운내용으로덮어쓰면기존event등록이사라짐)
-	// event 다시 등록
-	$(".btn.rreplycontent.show").on("click", btnRReplyContentClickHandler);
-	$(".btn.rreplay").on("click", btnRReplyClickHandler);
-}
+
 
 
 function btnRReplyContentClickHandler(){
@@ -227,6 +224,36 @@ function btnRReplyContentClickHandler(){
 	$(this).parent().next().toggle(); // 한 번 누르면 보이고 한 번 더 누르면 사라짐
 
 	
+}
+
+function displayReplyWrap(datalist){ /*result를 여ㅣㄱ에 넣어줌  */
+	console.log("${dto.boardId }");
+	var htmlVal = '';
+	for(var idx in datalist){
+		var replydto = datalist[idx];
+		htmlVal += `
+		<form class="frm-rreply">
+		<input type="hidden" name="boardId" value="${dto.boardId }"> /*EL 태그로 가져와라 controller에서 가져오는 겁니다.  */
+		<input type="hidden" name="boardReplyId" value="\${replydto.boardReplyId }"> /* $를 EL로 인식하지 말고  변수에 담긴 것을 빼와달라 */
+		<input type="hidden" name="boardReplyLevel" value="\${replydto.boardReplyLevel }">
+		<input type="hidden" name="boardReplyStep" value="\${replydto.boardReplyStep }">
+		<input type="hidden" name="boardReplyRef" value="\${replydto.boardReplyRef }">
+		<div  class="boardreply grid">
+			<div>\${replydto.boardReplyId }</div>
+			<div>\${replydto.boardReplyContent }</div>
+			<div>\${replydto.boardReplyWriteTime }</div>
+			<div>\${replydto.boardReplyWriter }</div>
+			<div><button type="button" class="btn rreplycontent show">ㄷㄷ글</button></div>
+			<div class="rreplycontent span" ><input type="text" name="boardReplyContent" ><button type="button" class="btn rreplay" >등록</button> </div>
+		</div>
+		</form>
+		`;
+	}
+	$(".reply-wrap").html(htmlVal);
+	// html(새로운내용으로덮어쓰면기존event등록이사라짐)
+	// event 다시 등록
+	$(".btn.rreplycontent.show").on("click", btnRReplyContentClickHandler);
+	$(".btn.rreplay").on("click", btnRReplyClickHandler);
 }
 </script>
 </body>
