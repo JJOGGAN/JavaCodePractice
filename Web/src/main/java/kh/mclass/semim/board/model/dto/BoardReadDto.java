@@ -20,8 +20,8 @@ public class BoardReadDto {
 	private String logIp;
 	private String boardWriter;
 	private Integer readCount;
-	//private List<BoardReplyListDto> replydtolist;
-	
+//	private List<BoardReplyListDto> replydtolist;
+	private List<FileReadDto> filedtolist;
 	
 	public BoardReadDto(Integer boardId, String subject, String content, String writeIime, String logIp, String boardWriter,
 			Integer readCount) {
@@ -74,5 +74,14 @@ public class BoardReadDto {
 
 	
 
+	public List<FileReadDto> getFiledtolist() {
+		return filedtolist;
+	}
+
+	public void setFiledtolist(List<FileReadDto> filedtolist) {
+		this.filedtolist = filedtolist;
+	}
+	
+	
 	
 }
