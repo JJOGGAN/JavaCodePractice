@@ -26,5 +26,4 @@
 	select count(*) cnt from board
 	</select>
 	<!-- 파라미터타입 지정은 하나만 됨 : 파라미터가 두 개이상일 경우 묶어서 표현해야한다  -->
-	
 </mapper>
