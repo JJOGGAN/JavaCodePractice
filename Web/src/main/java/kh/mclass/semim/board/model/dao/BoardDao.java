@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+
 import static kh.mclass.jdbc.JdbcTemplate.*;
 
 import kh.mclass.semim.board.model.dto.BoardDto;
@@ -22,6 +24,8 @@ import kh.mclass.semim.board.model.dto.BoardListDto;
 import kh.mclass.semim.board.model.dto.BoardReadDto;
 import kh.mclass.semim.board.model.dto.BoardReplyListDto;
 import kh.mclass.semim.board.model.dto.BoardReplyWriteDto;
+import kh.mclass.semim.board.model.dto.FileReadDto;
+import kh.mclass.semim.board.model.dto.FileWriteDto;
 
 //private Integer boardId;
 //private String subject;
@@ -30,26 +34,55 @@ import kh.mclass.semim.board.model.dto.BoardReplyWriteDto;
 //private Integer readCount;
 
 public class BoardDao {
-	// select total Count
-	public int selectTotalCount(Connection conn) {
-		int result = 0;
-		String sql = "select count(*) cnt from board";
+
+	// select list - all
+	public List<FileReadDto> selectFileList(Connection conn, Integer boardId) {
+		List<FileReadDto> result = null;
+//		(BOARD_ID, BOARD_FILE_ID, SAVED_FILE_PATH_NAME, ORIGINAL_FILENAME)
+		String sql = "SELECT BOARD_ID, BOARD_FILE_ID, SAVED_FILE_PATH_NAME, ORIGINAL_FILENAME   FROM BOARD_FILE WHERE BOARD_ID=?";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement(sql);
 			// ? 처리
-			rs = pstmt.executeQuery();// pstmt로 insert, update, delete 로 한 그 값을 가져오는 것이 ResultSet
+			pstmt.setInt(1, boardId);
+			rs = pstmt.executeQuery();
 			// ResetSet처리
 			if (rs.next()) {
-				result = rs.getInt("cnt");
+				result = new ArrayList<FileReadDto>();
+				do {
+//					TODO 왜 error 뜨지
+					FileReadDto dto = new FileReadDto(	
+							rs.getString("BOARD_ID"),rs.getString("BOARD_FILE_ID"),
+							rs.getString("SAVED_FILE_PATH_NAME"),rs.getString("ORIGINAL_FILENAME")
+							);
+					result.add(dto);
+				} while (rs.next());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		close(rs);
 		close(pstmt);
+		System.out.println("selectFileList : " + result);
 		return result;
+	}
+
+	// select total Count
+	public Integer selectTotalCount(SqlSession session) {
+		/* namespace.select에 적었던 id */
+		return session.selectOne("boardns.selectTotalCount");
+	}
+
+	// selelct list - board reply : board id
+	public List<BoardReplyListDto> selectBoardReplyList(SqlSession session, Integer boardId) {
+		/* 이름.select에 적었던id */
+		return session.selectList("boardns.selectBoardReplyList", boardId);
+		/*
+		 * return타입은 selectList라는 메소드 자체가 여러개를 만들어서 메소드가 알아서 List로 돌려줌 기본적으로 ArrayList로
+		 * 해준다
+		 */
+		/* selectOne으로 하면 List타입이 아니고 하나로 리턴함 */
 	}
 
 	// selelct page list
@@ -92,32 +125,25 @@ public class BoardDao {
 		return result;
 	}
 
-	// selelct list - board reply : board id
-	public List<BoardReplyListDto> selectBoardReplyList(Connection conn, Integer boardId) {
-		List<BoardReplyListDto> result = null;
-		String sql = "select BOARD_REPLY_ID,  BOARD_REPLY_WRITER,BOARD_REPLY_CONTENT, "
-				+ " BOARD_REPLY_WRITE_TIME, "
-				+ " BOARD_REPLY_LEVEL,BOARD_REPLY_REF, BOARD_REPLY_STEP "
-				+ " from board_reply where board_id=? order by board_reply_ref desc,  board_reply_step";
+	// select list - all
+	public List<BoardListDto> selectAllList(Connection conn) {
+		List<BoardListDto> result = null;
+		String sql = "SELECT BOARD_ID, SUBJECT,CONTENT,WRITE_TIME,LOG_IP,BOARD_WRITER,READ_COUNT    FROM BOARD";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement(sql);
 			// ? 처리
-			pstmt.setInt(1, boardId);
 			rs = pstmt.executeQuery();
 			// ResetSet처리
-			if(rs.next()) {
-				result = new ArrayList<BoardReplyListDto>();
+			if (rs.next()) {
+				result = new ArrayList<BoardListDto>();
 				do {
-					BoardReplyListDto dto = new BoardReplyListDto(	
-							rs.getInt("BOARD_REPLY_ID"),rs.getString("BOARD_REPLY_WRITER"),
-							rs.getString("BOARD_REPLY_CONTENT"),rs.getString("BOARD_REPLY_WRITE_TIME"),
-							rs.getInt("BOARD_REPLY_LEVEL"),rs.getInt("BOARD_REPLY_REF"),rs.getInt("BOARD_REPLY_STEP")
-							);
+					BoardListDto dto = new BoardListDto(rs.getInt("BOARD_ID"), rs.getString("SUBJECT"),
+							rs.getString("WRITE_TIME"), rs.getString("BOARD_WRITER"), rs.getInt("READ_COUNT"));
 					result.add(dto);
-				}while (rs.next());
-			}	
+				} while (rs.next());
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -125,37 +151,8 @@ public class BoardDao {
 		close(pstmt);
 		return result;
 	}
-	
-	// select list - all
-		public List<BoardListDto> selectAllList(Connection conn) {
-			List<BoardListDto> result = null;
-			String sql = "SELECT BOARD_ID, SUBJECT,CONTENT,WRITE_TIME,LOG_IP,BOARD_WRITER,READ_COUNT    FROM BOARD";
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			try {
-				pstmt = conn.prepareStatement(sql);
-				// ? 처리
-				rs = pstmt.executeQuery();
-				// ResetSet처리
-				if(rs.next()) {
-					result = new ArrayList<BoardListDto>();
-					do {
-						BoardListDto dto = new BoardListDto(	
-								rs.getInt("BOARD_ID"),rs.getString("SUBJECT"),
-								rs.getString("WRITE_TIME"),rs.getString("BOARD_WRITER"),
-								rs.getInt("READ_COUNT")
-								);
-						result.add(dto);
-					}while (rs.next());
-				}	
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			close(rs);
-			close(pstmt);
-			return result;
-		}
-	//select one
+
+	// select one
 	public BoardReadDto selectOne(Connection conn, Integer boardId) {
 		BoardReadDto result = null;
 		String sql = "SELECT BOARD_ID,SUBJECT,CONTENT,WRITE_TIME,LOG_IP,BOARD_WRITER,READ_COUNT FROM BOARD WHERE BOARD_ID = ?";
@@ -179,9 +176,8 @@ public class BoardDao {
 		close(pstmt);
 		return result;
 	}
-	
-	
-	// select  SEQ_BOARD_ID.nextval 번호 넣기
+
+	// select SEQ_BOARD_ID.nextval 번호 넣기
 	public int getSequenceNum(Connection conn) {
 		int result = 0;
 		String sql = "SELECT SEQ_BOARD_ID.nextval FROM DUAL";
@@ -192,9 +188,9 @@ public class BoardDao {
 			// ? 처리
 			rs = pstmt.executeQuery();
 			// ResetSet처리
-			if(rs.next()) {
+			if (rs.next()) {
 				result = rs.getInt(1);
-			}			
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -202,9 +198,10 @@ public class BoardDao {
 		close(pstmt);
 		return result;
 	}
+
 	// insert - Reply 댓글 대댓글
 	public int insertRReply(Connection conn, BoardReplyWriteDto dto) {
-		int result = 0;  // 1 정상, 0비정상
+		int result = 0; // 1 정상, 0비정상
 		String sql = " INSERT INTO BOARD_REPLY VALUES ( (SELECT NVL(MAX(BOARD_REPLY_ID),0)+1 FROM BOARD_REPLY), ?,"
 				+ "            ?, ? , default , null, "
 				+ "            (SELECT BOARD_REPLY_LEVEL+1 FROM BOARD_REPLY WHERE BOARD_REPLY_ID = ? )  , "
@@ -227,7 +224,7 @@ public class BoardDao {
 		close(pstmt);
 		return result;
 	}
-	
+
 	// insert - Reply 댓글 원본글
 	public int insertReply(Connection conn, BoardReplyWriteDto dto) {
 		int result = 0;
@@ -249,12 +246,24 @@ public class BoardDao {
 		close(pstmt);
 		return result;
 	}
-		
+
 	// 게시글 등록하기
-	public int insert(Connection conn, BoardInsertDto dto,int sequencNum) {
+	public int insert(Connection conn, BoardInsertDto dto) {
+		System.out.println("boardDao insert() param : " + dto);
 		int result = 0;
-		String sql = "INSERT INTO BOARD( BOARD_ID,SUBJECT,CONTENT,WRITE_TIME,LOG_IP,BOARD_WRITER,READ_COUNT) "
-				+ "	VALUES(?,?,?,DEFAULT,?,?,DEFAULT)";
+//		String sql = "INSERT INTO BOARD (BOARD_ID,SUBJECT,CONTENT,WRITE_TIME,LOG_IP,BOARD_WRITER,READ_COUNT)"
+//		+ " VALUES (SEQ_BOARD_ID.nextval, ?, ?, default, ?, ?, default)";
+		String sql = "INSERT ALL ";
+		sql += "	INTO BOARD (BOARD_ID,SUBJECT,CONTENT,WRITE_TIME,LOG_IP,BOARD_WRITER,READ_COUNT) ";
+		sql += "		VALUES (SEQ_BOARD_ID.nextval, ?, ?, default, ?, ?, default) ";
+		if (dto.getFileList() != null && dto.getFileList().size() > 0) {
+			for (FileWriteDto filedto : dto.getFileList()) {
+				sql += "	INTO BOARD_FILE (BOARD_ID, BOARD_FILE_ID, SAVED_FILE_PATH_NAME, ORIGINAL_FILENAME) ";
+				sql += "		VALUES (SEQ_BOARD_ID.nextval, ?, ?, ?) ";
+			}
+		}
+		sql += "	SELECT * FROM DUAL ";
+		System.out.println("sql: " + sql);
 		PreparedStatement pstmt = null;
 		// BOARD_ID NOT NULL NUMBER
 		// SUBJECT NOT NULL VARCHAR2(120)
@@ -266,24 +275,33 @@ public class BoardDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			// ? 처리
-			pstmt.setInt(1, sequencNum);
-			pstmt.setString(2, dto.getSubject());
-			pstmt.setString(3, dto.getContent());
-			pstmt.setString(4, null);
-			pstmt.setString(5, dto.getBoardWriter());
+			int i = 1;
+			pstmt.setString(i++, dto.getSubject());
+			pstmt.setString(i++, dto.getContent());
+			pstmt.setString(i++, null); // TODO pstmt.setString(3, dto.getLogIp());
+			pstmt.setString(i++, dto.getBoardWriter());
+			if (dto.getFileList() != null && dto.getFileList().size() > 0) {
+				int fileId = 1;
+				for (FileWriteDto filedto : dto.getFileList()) {
+					pstmt.setInt(i++, fileId++);
+					pstmt.setString(i++, filedto.getFilePath());
+					pstmt.setString(i++, filedto.getOrginFileName());
+				}
+			}
 
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		close(pstmt);
+		System.out.println("boardDao insert() return : " + result);
 		return result;
 	}
-	
-	//update - reply step 댓글 등록할 때 마다 업데이트해준다
+
+	// update - reply step 댓글 등록할 때 마다 업데이트해준다
 	public int updateReplyStep(Connection conn, Integer boardReplyId) {
-		int result = -1;  // 0~n 정상이므로 비정상인경우-1 //0이 작동은 했지만 업데이트한 행이 0개 일 때
-		//게시글 작성자와 아이디가 다르면 board 테이블의 read_count가 증가
+		int result = -1; // 0~n 정상이므로 비정상인경우-1 //0이 작동은 했지만 업데이트한 행이 0개 일 때
+		// 게시글 작성자와 아이디가 다르면 board 테이블의 read_count가 증가
 		String sql = "UPDATE BOARD_REPLY SET BOARD_REPLY_STEP = BOARD_REPLY_STEP+1  WHERE "
 				+ "            BOARD_REPLY_REF = ( SELECT BOARD_REPLY_REF FROM BOARD_REPLY WHERE BOARD_REPLY_ID = ?)"
 				+ "            AND "
@@ -299,13 +317,14 @@ public class BoardDao {
 			e.printStackTrace();
 		}
 		close(pstmt);
+		System.out.println("boardDao updateReplyStep() return : " + result);
 		return result;
 	}
-	
-	//update 조회수 업데이트 - 아이디가 다를 때만 올라간다
+
+	// update 조회수 업데이트 - 아이디가 다를 때만 올라간다
 	public int updateReadCount(Connection conn, Integer boardId) {
 		int result = 0;
-		//게시글 작성자와 아이디가 다르면 board 테이블의 read_count가 증가
+		// 게시글 작성자와 아이디가 다르면 board 테이블의 read_count가 증가
 		String sql = " UPDATE BOARD SET READ_COUNT=READ_COUNT+1 WHERE BOARD_ID = ? ";
 		PreparedStatement pstmt = null;
 		try {
@@ -319,8 +338,8 @@ public class BoardDao {
 		close(pstmt);
 		return result;
 	}
-	
-	//update
+
+	// update
 	public int update(Connection conn, BoardDto dto) {
 		int result = 0;
 		String sql = "UPDATE BOARD SET SUBJECT=?,CONTENT=?,LOG_IP=? WHERE BOARD_ID = ? ";
