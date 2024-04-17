@@ -21,7 +21,7 @@ import kh.mclass.semim.board.model.service.BoardService;
 @WebServlet("/board/reply/write.ajax")
 public class BoardReplyWriteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private BoardService service = new BoardService();
+	private BoardService service = new BoardService(); 
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -34,6 +34,7 @@ public class BoardReplyWriteController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 	}
 
 	/**
@@ -42,22 +43,30 @@ public class BoardReplyWriteController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("/board/reply/write.ajax doPost()");
 		String boardReplyIdStr = request.getParameter("boardReplyId");
-		int boardReplyId=0;
-		String boardIdStr  = request.getParameter("boardId");
+		int boardReplyId = 0;
+		String boardIdStr = request.getParameter("boardId");
 		int boardId = 0;
-		String boardReplyContent  = request.getParameter("boardReplyContent");
-		//TODO login 수정될 때마다 로그인 하기 번거로우니 하드 코딩으로 고정해 둔 것
-		String boardReplyWriter = "kh1";  //TODO
+		String boardReplyContent = request.getParameter("boardReplyContent");
+		// TODO LOGIN
+		String boardReplyWriter = "aaaaa";  //TODO
 		String boardReplyLogIp = null;  // TODO
 		
 		Gson gson = new Gson();
 		
-		// 게시글 작성자의 아이디
+		//게시글 작성자 아이디
 		if(boardIdStr == null || boardIdStr.equals("")) {
 			response.getWriter().append("-1");
+			return;
 		}
-		
-		//댓글 작성자의 아이디
+		if(boardIdStr != null && !boardIdStr.equals("")) {
+			try {
+				boardId = Integer.parseInt(boardIdStr);
+			}catch (NumberFormatException e) {
+				response.getWriter().append("-1");
+				return;
+			}
+		}
+		//댓글 작성자 아이디
 		if(boardReplyIdStr != null && !boardReplyIdStr.equals("")) {
 			try {
 				boardReplyId = Integer.parseInt(boardReplyIdStr);
@@ -67,7 +76,7 @@ public class BoardReplyWriteController extends HttpServlet {
 			}
 		}
 		if(boardReplyIdStr == null || boardReplyIdStr.equals("")) {
-			// 댓글 원본으로 간주함
+			// 댓글 원본으로 간주함.
 			boardReplyId = 0;
 		}
 		BoardReplyWriteDto dto = new BoardReplyWriteDto(boardReplyId, boardId, boardReplyWriter, boardReplyContent, boardReplyLogIp);

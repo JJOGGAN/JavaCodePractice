@@ -82,7 +82,7 @@ public class BoardListController extends HttpServlet {
 		System.out.println(">>>>>>>>> map"+ service.selectPageList(pageSize, pageBlockSize, currentPageNum) );
 		
 		//request.setAttribute("dtolist", service.selectAllList());
-		request.getRequestDispatcher("/WEB-INF/views/semim/list.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/semim/board/list.jsp").forward(request, response);
 	}
 
 	/**
