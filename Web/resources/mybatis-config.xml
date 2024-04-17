@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "https://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+	<properties resource="driver.properties"/>
+
+
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<!-- 낙타표기법 활성 off -->
+	</settings>
+	<typeAliases>
+		<typeAlias type="kh.mclass.semim.board.model.dto.BoardListDto" alias="BoardListDtoA"/>
+		<typeAlias type="kh.mclass.semim.board.model.dto.BoardReadDto" alias="BoardReadDtoA"/>
+		<typeAlias type="kh.mclass.semim.board.model.dto.BoardReplyDto" alias="BoardReplyDtoA"/>
+		<typeAlias type="kh.mclass.semim.board.model.dto.BoardInsertDto" alias="BoardInsertDtoA"/>
+		
+	</typeAliases>
+
+	<environments default="development2">
+	<!--  environment중에서 어떤 것을 default로 할 지 정하는 것-->
+		<environment id="development1">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+			<!-- properties에 적힌 파일 안의 driver -->
+				<property name="driver" value="${jdbc.driver}"/>
+				<property name="url" value="${jdbc.semi.localhost.url}"/>
+				<property name="username" value="${jdbc.username}"/>
+				<property name="password" value="${jdbc.password}"/>
+			</dataSource>
+		</environment>
+		
+		<environment id="development2">
+						<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+			<!-- properties에 적힌 파일 안의 driver -->
+				<property name="driver" value="${jdbc.driver}"/>
+				<property name="url" value="${jdbc.semi.dbserver.url}"/>
+				<property name="username" value="${jdbc.semi.username}"/>
+				<property name="password" value="${jdbc.semi.password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+	<!--resources파일을 기준으로 상대경로 지정  -->
+	<!-- 파일이 없는 경우 실행이 되지 않으므로 xxx-mapper.xml파일을 먼저 만든 후 연결해주자 -->
+	
+		<mapper resource="mappers/board-mapper.xml"/>
+	</mappers>
+	</configuration>
